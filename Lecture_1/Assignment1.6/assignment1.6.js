@@ -23,8 +23,10 @@ console.log(pickyProcessifier("this is a string  "));
 console.log(
   pickyProcessifier(
     "This is a loooooooooooooooooooooooooooooooooooooooooooooooooooooong string"
+    //appropriately results in error
   )
 );
 
 //for inputting parameters after the file name in the terminal
+console.log(processifier.argv[2]);
 console.log(pickyProcessifier(process.argv[2]));
