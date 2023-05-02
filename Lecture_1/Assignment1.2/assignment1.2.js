@@ -14,7 +14,7 @@ const text3 = "monkeys" + 6 + 6 + 6; // monkeys 666
 
 const tarzansFriends = "monkees";
 const tarzanLikesJane = true;
-const monkeysLike = 69;
+const monkeysLike = 1337;
 
 console.log(tarzansFriends, typeof tarzansFriends);
 console.log(tarzanLikesJane, typeof tarzanLikesJane);
