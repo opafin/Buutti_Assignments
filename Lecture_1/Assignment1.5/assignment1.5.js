@@ -17,19 +17,15 @@ if (console.log("wt")) {
 } else console.log(false);
 
 // class Mark {
-//   constructor(isHappy) {
-//     this.isHappy = isHappy;
-//   }
+//    isHappy
 // }
 
 // class Suzy {
-//   constructor(isHappy) {
-//     this.isHappy = isHappy;
-//   }
+//    isHappy
 // }
 
-// mark = new Mark((ishappy = true));
-// suzy = new Suzy((ishappy = true));
+// mark = new Mark();
+// suzy = new Suzy();
 
 let markIsHappy;
 let sunIsShining;
