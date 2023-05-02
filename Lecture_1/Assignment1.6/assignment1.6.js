@@ -1,5 +1,3 @@
-const { argv } = require("process");
-
 function processifier(anyString) {
   processedAnyString =
     anyString.trim().charAt(0).toLowerCase() + anyString.trim().slice(1);
@@ -27,6 +25,7 @@ console.log(
   )
 );
 
+const { argv } = require("process");
 //for inputting parameters after the file name in the terminal
-console.log(processifier(process.argv[2]));
-console.log(pickyProcessifier(process.argv[2]));
+console.log(processifier(argv[2]));
+console.log(pickyProcessifier(argv[2]));
