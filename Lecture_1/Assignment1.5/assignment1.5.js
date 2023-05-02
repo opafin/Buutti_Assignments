@@ -53,12 +53,18 @@ let weekdayIsTuesday = true;
 let seesDan = false;
 let seesSuzy = true;
 if (
-  (seesSuzy && !seesDan && weekdayIsTuesday) ||
-  (seesDan && !seesSuzy && weekdayIsTuesday)
+  (seesSally && !seesDan && weekdayIsTuesday) ||
+  (seesDan && !seesSally && weekdayIsTuesday)
 ) {
   suzyIsHappy = true;
   playerCount++;
 }
+
+//could also use the ternary operator
+suzyIsHappy = seesSally != seesDan && weekdayIsTuesday ? true : false;
+
+//so are all the criteria met?
+//yes! let's play!
 
 if (
   playerCount === 4 &&
