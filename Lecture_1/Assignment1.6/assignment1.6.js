@@ -17,7 +17,7 @@ console.log(pickyProcessifier("this is a string"));
 //test cases
 console.log(pickyProcessifier(" this is a string"));
 console.log(pickyProcessifier("This is a string"));
-console.log(pickyProcessifier("This is a string  "));
+console.log(pickyProcessifier("this is a string  "));
 console.log(
   pickyProcessifier(
     "This is a loooooooooooooooooooooooooooooooooooooooooooooooooooooong string"
