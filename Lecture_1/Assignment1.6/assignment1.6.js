@@ -28,5 +28,5 @@ console.log(
 );
 
 //for inputting parameters after the file name in the terminal
-console.log(processifier.argv[2]);
+console.log(processifier(process.argv[2]));
 console.log(pickyProcessifier(process.argv[2]));
