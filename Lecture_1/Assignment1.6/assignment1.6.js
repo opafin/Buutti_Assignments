@@ -1,3 +1,5 @@
+const { argv } = require("process");
+
 function processifier(anyString) {
   processedAnyString =
     anyString.trim().charAt(0).toLowerCase() + anyString.trim().slice(1);
@@ -23,3 +25,6 @@ console.log(
     "This is a loooooooooooooooooooooooooooooooooooooooooooooooooooooong string"
   )
 );
+
+//for inputting parameters after the file name in the terminal
+console.log(pickyProcessifier(process.argv[2]));
