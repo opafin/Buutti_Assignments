@@ -40,7 +40,7 @@ console.log(
   "birthday! Many happy returns!"
 );
 
-//this doesn't work, even if all spaces are removed by ignoring formatter
+//testing: this doesn't work, even if all spaces are removed by ignoring formatter
 console.log("Sincerely,\n",sender); //prettier-ignore
 //this works
 console.log("Sincerely,\n" + sender);
