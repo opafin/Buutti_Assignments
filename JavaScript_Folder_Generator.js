@@ -1,6 +1,6 @@
 //Manual:
-//place this script in the repository's root folder
-//Start typing in vscode terminal "node Ja" Use Tab to autocomplete.
+//Place this script in the repository's root folder
+//Start typing in the vscode terminal "node Ja" Use Tab to autocomplete.
 //Then add two parameters separated by spaces.
 //E.G: node .\JavaScript_Folder_Generator.js 3 11
 //3 is the lecture number 11 is the total count of assignments
