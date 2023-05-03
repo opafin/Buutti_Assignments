@@ -13,7 +13,7 @@ npm install buufolders
 ```bash
 npx buuf 1 10
 ```
-````
+```
 1 = thisLecture
 10 = totalAssignmentCount
 ```
