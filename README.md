@@ -17,3 +17,4 @@ npx buuf 1 10
 1 = thisLecture
 10 = totalAssignmentCount
 ```
+![alt text](https://raw.githubusercontent.com/opafin/Buutti_Bootcamp_Full_Stack/main/buufolders.png)
