@@ -2,7 +2,7 @@
 
 Assignments completed during the lectures at the ✨ fantastic Full Stack Buutti Bootcamp ✨
 
-✨higlights so far
+✨Highlight 3.5
 Bootcamp buddy suggested I could try to make an NPM package out of the foldergenerators I was testing out.
 
 Here it is:
