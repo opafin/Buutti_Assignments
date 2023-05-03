@@ -1,4 +1,5 @@
 import os
+import time
 
 def clear_console():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -11,10 +12,7 @@ clear_console()
 how_many_to_generate = int(input("set the total count of assignments: (enter a number) "))
 clear_console()
 
-print(f"GENERATING {how_many_to_generate} assignment-folders and -files for Lecture {lecture_number}\nDONE" )
-print("The total count of assignments can be increased later")
-print("e.g from 3 to 15. Just run the script again.\n")
-print("previous assignments will not be overwritten, duplicates will not be created.\n")
+print(f"Generating {how_many_to_generate} assignment folders and files for Lecture {lecture_number}")
 
 lecture_folder = f"Lecture_{lecture_number}"
 if not os.path.exists(lecture_folder):
@@ -39,3 +37,9 @@ for i in range(0, how_many_to_generate):
     if not os.path.exists(full_assignment_file_path):
         js_file = open(full_assignment_file_path, 'w')
         js_file.close()
+
+time.sleep(3)
+print("Done!")
+print("The total count of assignments can be increased later")
+print("e.g from 3 to 15. Just run the script again.\n")
+print("previous assignments will not be overwritten, duplicates will not be created.\n")
