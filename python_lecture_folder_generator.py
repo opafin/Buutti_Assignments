@@ -6,10 +6,10 @@ def clear_console():
 clear_console()
 
 print("**Welcome to the Lecture Folder Generator!**")
-lecture_number = input("which lecture is this? (enter a number) ")
+lecture_number = input("Which lecture is this? (enter a number) ")
 clear_console()
 
-how_many_to_generate = int(input("set the total count of assignments: (enter a number) "))
+how_many_to_generate = int(input("Set the total count of assignments: (enter a number) "))
 clear_console()
 
 print(f"Generating {how_many_to_generate} assignment folders and files for Lecture {lecture_number}")
