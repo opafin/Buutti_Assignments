@@ -1,0 +1,20 @@
+{
+  "name": "buufolders",
+  "version": "1.0.0",
+  "description": "create Lecture folders!",
+  "main": "buufolders/buuf.js",
+  "scripts": {
+    "test": "node buuf.js 2 2"
+  },
+  "bin":{
+    "buuf":"./buuf.cmd"
+  },
+  "keywords": [
+    "easy",
+    "folders",
+    "lecture",
+    "generator"
+  ],
+  "author": "opafin",
+  "license": "MIT"
+}
