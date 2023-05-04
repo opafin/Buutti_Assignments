@@ -1,6 +1,6 @@
-# Buutti_Assignments
+# Buutti Assignments
 
-Assignments completed during the lectures at the ✨ fantastic Full Stack Buutti Bootcamp ✨
+Assignments completed during the lectures at the fantastic ✨ Buutti Full Stack Bootcamp ✨
 
 
 ---
