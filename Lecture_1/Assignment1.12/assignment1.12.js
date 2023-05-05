@@ -30,6 +30,8 @@ function moduloGroupCount(buutcamperCount, teamSize) {
   // lets add the groups! -> correct result!
   const groups = fullGroups + smolGroup;
 
+  // checking the results against the mathCeilGroupCount function
+  // logging an error *in red* if the results don't match
   if (groups !== mathCeilGroupCount(buutcamperCount, teamSize))
     return groups + logError(" fail");
   else return groups;
