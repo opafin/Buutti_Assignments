@@ -35,7 +35,7 @@ regardless of having many restrictions such as <br>
 
 Some tried pure math solutions and others cleverly used string replacement. <br>
 <br>
-Here is my favourite solution <br>
+Here is my favourite solution [Tests] and other solutions in the file <br>
   
 https://github.com/opafin/Buutti_Full_Stack_Bootcamp/blob/main/Lecture_1/Assignment1.12/assignment1.12.js
 <br>
