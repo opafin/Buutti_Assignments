@@ -29,7 +29,7 @@ The final task of the lecture 1 sparked a lot of creativity in the Buutcampers <
 <br>
 We came up with several ideas for calculating rounded up group counts from a population <br>
 regardless of having many restrictions such as <br>
-* no functions
+* no library functions
 * no if-statements
 * no loops <br>
 <br>
