@@ -6,7 +6,7 @@ Assignments completed during the lectures at the fantastic ✨ Buutti Full Stack
 ---
 ✨ Lecture 1 Wednesday 3.5 highlight <br>
 
-Bootcamp buddy suggested I could try to make an NPM package out of one the lecture folder generators I was creating for us to use.
+Bootcamp buddy suggested I could try to make an NPM package out of one the lecture folder generators I was creating for us to use, since we would be making a lot of folders.
 
 Here it is:
 
