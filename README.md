@@ -21,3 +21,7 @@ npx buuf 1 10
 10 = totalAssignmentCount
 ```
 ![alt text](https://raw.githubusercontent.com/opafin/Buutti_Bootcamp_Full_Stack/main/buufolders.png)
+
+
+✨ Lecture 1 thursday 4.5 highlight <br>
+https://github.com/opafin/Buutti_Full_Stack_Bootcamp/blob/main/Lecture_1/Assignment1.12/assignment1.12.js
