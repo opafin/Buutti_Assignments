@@ -36,6 +36,7 @@ https://github.com/opafin/Buutti_Full_Stack_Bootcamp/blob/main/Lecture_1/Assignm
 
 ---
 ✨ Lecture 2 friday 4.5 highlight <br>
+<br>
 Starting Teamwork with Github and GitLab early. It's challenging, and it's great. <br>
 I made this "thank you" card for the team in jest with the canva free trial :)
 <br>
