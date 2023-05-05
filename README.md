@@ -31,7 +31,7 @@ We came up with several ideas for calculating rounded up group counts from a pop
 regardless of having many restrictions such as <br>
 * no library functions
 * no if-statements
-* no loops  return
+* no loops  
 
 Some tried pure math solutions and others cleverly used string replacement. <br>
 <br>
