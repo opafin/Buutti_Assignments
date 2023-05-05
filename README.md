@@ -38,6 +38,7 @@ Some tried pure math solutions and others cleverly used string replacement. <br>
 Here is my favourite solution <br>
 https://github.com/opafin/Buutti_Full_Stack_Bootcamp/blob/main/Lecture_1/Assignment1.12/assignment1.12.js
 <br>
+
 ![alt text](https://raw.githubusercontent.com/opafin/Buutti_Full_Stack_Bootcamp/main/Lecture_1/Assignment1.12/GroupCountWithModulo.png)
 
 ---
