@@ -1,1 +1,1 @@
-//creating a lecture files gitrepo
+//creating a git repo
