@@ -27,7 +27,11 @@ npx buuf 1 10
 
 The final task of the lecture 1 sparked a lot of creativity in the Buutcampers <br>
 <br>
-We came up with several ideas for calculating rounded up group counts from a population with or without any functions, loops or IF-statements. <br>
+We came up with several ideas for calculating rounded up group counts from a population <br>
+regardless of having many restrictions such as <br>
+-no functions
+-no if-statements
+-no loops
 Some tried pure math solutions and others cleverly used string replacement. <br>
 <br>
 Here is my favourite solution <br>
