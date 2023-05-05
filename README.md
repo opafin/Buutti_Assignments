@@ -25,9 +25,9 @@ npx buuf 1 10
 ---
 ✨ Lecture 1 thursday 4.5 highlight <br>
 
-The final task of the lecture 1 sparked a lot of creativity in the Buutcampers
-We came up with several ideas for calculating rounded up group counts from a population with or without any functions.
+The final task of the lecture 1 sparked a lot of creativity in the Buutcampers <br>
+We came up with several ideas for calculating rounded up group counts from a population with or without any functions. <br>
 Some tried pure math solutions and others cleverly used string replacement. 
-Here is my favourite
+Here is my favourite <br>
 https://github.com/opafin/Buutti_Full_Stack_Bootcamp/blob/main/Lecture_1/Assignment1.12/assignment1.12.js
 ![alt text](https://github.com/opafin/Buutti_Full_Stack_Bootcamp/blob/main/Lecture_1/Assignment1.12/GroupCountWithModulo.png)
