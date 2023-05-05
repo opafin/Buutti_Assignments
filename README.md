@@ -31,11 +31,12 @@ We came up with several ideas for calculating rounded up group counts from a pop
 regardless of having many restrictions such as <br>
 * no functions
 * no if-statements
-* no loops
+* no loops <br>
 Some tried pure math solutions and others cleverly used string replacement. <br>
 <br>
 Here is my favourite solution <br>
 https://github.com/opafin/Buutti_Full_Stack_Bootcamp/blob/main/Lecture_1/Assignment1.12/assignment1.12.js
+<br>
 ![alt text](https://github.com/opafin/Buutti_Full_Stack_Bootcamp/blob/main/Lecture_1/Assignment1.12/GroupCountWithModulo.png)
 
 ---
