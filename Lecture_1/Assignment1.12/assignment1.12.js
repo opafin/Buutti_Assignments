@@ -1,16 +1,33 @@
 // let buutcamperCount = process.argv[2];
 // let teamSize = process.argv[3];
 
+// the traditional approach
 function mathCeilGroupCount(buutcamperCount, teamSize) {
-  // the traditional approach
   return Math.ceil(buutcamperCount / teamSize);
 }
 
+// Without using math.ceil() this is my favourite solution so far,
+// because it's understandable and fundamentally works with math only.
+// it only needs to bypass the "division by 0" quirk found in JavaScript and many other programming languages.
 function moduloGroupCount(buutcamperCount, teamSize) {
+  // basic division
   const division = buutcamperCount / teamSize;
+
+  // Modulo = how many are left over after division.
+  // for example: 2.76 % 1 = 0.76.
+  // 1 goes into 2.76 fully 2 times. (2.76 - 2)
+  // then 0.76 is left over.
   const modulo = division % 1;
+
+  // remove modulo from division: (2.76 - 0.76) we get two full groups = 2.00
   const fullGroups = division - modulo;
-  const smolGroup = modulo / modulo > 0; // Nan would destroy the calculation, so we say 0, if division result is Nan
+
+  // Now that we have the full groups, lets check if there is a smaller group.
+  // If there are left overs in the modulo, the division will result in 1.
+  // In JavaScript dividing by 0 results in NaN. By using (NaN OR 0) a NaN will appropriately result in 0.
+  const smolGroup = modulo / modulo || 0;
+
+  // lets add the groups! -> correct result!
   const groups = fullGroups + smolGroup;
 
   if (groups !== mathCeilGroupCount(buutcamperCount, teamSize))
@@ -18,8 +35,7 @@ function moduloGroupCount(buutcamperCount, teamSize) {
   else return groups;
 }
 
-//all these "arithmetic only" solutions fail in some cases
-
+// all these "arithmetic only" solutions fail in some cases
 function calculateTeamsConcise(people, size) {
   let groups = 
     (people + size - 1) / size - ((people + size - 1) % size) / size; //prettier-ignore
