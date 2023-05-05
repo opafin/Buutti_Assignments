@@ -26,6 +26,7 @@ npx buuf 1 10
 ✨ Lecture 1 thursday 4.5 highlight <br>
 
 The final task of the lecture 1 sparked a lot of creativity in the Buutcampers <br>
+<br>
 We came up with several ideas for calculating rounded up group counts from a population with or without any functions. <br>
 Some tried pure math solutions and others cleverly used string replacement. 
 Here is my favourite <br>
