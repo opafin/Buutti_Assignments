@@ -4,7 +4,7 @@ const path = require("path");
 const lectureNumber = process.argv[2];
 const howManyToGenerate = process.argv[3];
 
-const lectureFolder = `Lecture_${lectureNumber}`;
+const lectureFolder = `Lecture_${String(lectureNumber).padStart(2, "0")}`;
 
 // Get the current working directory
 const projectRoot = process.cwd();
