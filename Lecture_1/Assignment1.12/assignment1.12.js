@@ -6,29 +6,16 @@ function mathCeilGroupCount(buutcamperCount, teamSize) {
   return Math.ceil(buutcamperCount / teamSize);
 }
 
-// Without using math.ceil() this is my favourite solution so far,
-// because it's understandable and fundamentally works with math only.
-// it only needs to bypass the "division by 0" quirk found in JavaScript and many other programming languages.
+// Without using math.ceil() this is my favourite solution so far
+// It uses || only to get past the quirk with division by zero found in math & many programming languages
 function moduloGroupCount(buutcamperCount, teamSize) {
-  // basic division
-  const division = buutcamperCount / teamSize;
-
-  // Modulo = how many are left over after division.
-  // for example: 2.76 % 1 = 0.76.
-  // 1 goes into 2.76 fully 2 times. (2.76 - 2)
-  // then 0.76 is left over.
-  const modulo = division % 1;
-
-  // remove modulo from division: (2.76 - 0.76) we get two full groups = 2.00
-  const fullGroups = division - modulo;
-
-  // Now that we have the full groups, lets check if there is a smaller group.
-  // If there are left overs in the modulo, the division will result in 1.
-  // In JavaScript dividing by 0 results in NaN. By using (NaN OR 0) a NaN will appropriately result in 0.
-  const smolGroup = modulo / modulo || 0;
-
-  // lets add the groups! -> correct result!
-  const groups = fullGroups + smolGroup;
+  //
+  const division = buutcamperCount / teamSize; // e.g 2.76
+  const modulo = division % 1; // e.g 2.76 % 1 = 0.76 the modulo is the left over after the division.
+  const fullGroups = division - modulo; // e.g 2.76 - 0.76 remove modulo from division: we get two full groups = 2.00
+  const smolGroup = modulo / modulo || 0; // left overs in modulo result in 1. 0/0 results in 0 instead of NaN.
+  // just using smolGroup = modulo ? 1 : 0 would also work.
+  const groups = fullGroups + smolGroup; // lets add the groups! -> correct result!
 
   // checking the results against the mathCeilGroupCount function
   // logging an error *in red* if the results don't match
