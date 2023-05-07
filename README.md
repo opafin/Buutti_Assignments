@@ -37,10 +37,10 @@ Some tried pure math solutions and others cleverly used string replacement. <br>
 <br>
 Here is my favourite solution so far: ([Tests] and other solutions in the file) <br>
   
-https://github.com/opafin/Buutti_Full_Stack_Bootcamp/blob/main/Lecture_1/Assignment1.12/assignment1.12.js
+https://github.com/opafin/Buutti_Full_Stack_Bootcamp/blob/main/Lecture_01/Assignment1.12/assignment1.12.js
 <br>
 
-![alt text](https://raw.githubusercontent.com/opafin/Buutti_Full_Stack_Bootcamp/main/Lecture_1/Assignment1.12/GroupCountWithModulo.png)
+![alt text](https://github.com/opafin/Buutti_Full_Stack_Bootcamp/blob/main/Lecture_01/Assignment1.12/GroupCountWithModulo.png?raw=true)
 
 ---
 ✨ Lecture 2 Friday 4.5 highlight <br>
@@ -49,6 +49,6 @@ Starting Teamwork with Github and GitLab early. It's challenging, and it's great
 I made this thank you card for the team in jest with the canva free trial :)
 <br>
 <br>
-![alt text](https://raw.githubusercontent.com/opafin/Buutti_Full_Stack_Bootcamp/main/Lecture_2/Assignment2.09/MergeConflictJest.png)
+![alt text](https://github.com/opafin/Buutti_Full_Stack_Bootcamp/blob/main/Lecture_02/Assignment2.09/MergeConflictJest.png?raw=true)
 
 
