@@ -14,7 +14,7 @@ function moduloGroupCount(buutcamperCount, teamSize) {
   const modulo = division % 1; // e.g 2.76 % 1 = 0.76 the modulo is the left over after the division.
   const fullGroups = division - modulo; // e.g 2.76 - 0.76 remove modulo from division: we get two full groups = 2.00
   const smolGroup = modulo / modulo || 0; // left overs in modulo result in 1. 0/0 results in 0 instead of NaN.
-  // just using smolGroup = modulo ? 1 : 0 would also work.
+  // just using smolGroup = modulo ? 1 : 0 would also work. But this is about minimizing the use of anything but arithmetic.
   const groups = fullGroups + smolGroup; // lets add the groups! -> correct result!
 
   // checking the results against the mathCeilGroupCount function
