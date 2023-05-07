@@ -2,11 +2,17 @@
 const fs = require("fs");
 const path = require("path");
 
-// input parameters for the lecture folder and the assignment folder after the "npx buuf "1" "10""
-const [npx, buuf, lectureNumber, howManyToGenerate] = process.argv;
+// input parameters for the lecture folder and the assignment folder after the "npx buuf "1" "10" "ts"<--optional
+let [npx, buuf, lectureNumber, howManyToGenerate, fileType] = process.argv;
 // alternate approach would be:
 // const lectureNumber = process.argv[2];
 // const howManyToGenerate = process.argv[3];
+// const fileType = process.argv[4];
+
+// makes a js-file by default
+if (!fileType) {
+  fileType = "js";
+}
 
 const lectureFolder = `Lecture_${String(lectureNumber).padStart(2, "0")}`;
 
@@ -41,12 +47,13 @@ for (let i = 0; i <= howManyToGenerate; i++) {
     assignmentFile
   );
 
-  // Checking if a base assignment file (.ts or .js) already exists
-  if (
-    !fs.existsSync(
-      fullAssignmentFilePath + ".js" && fullAssignmentFilePath + ".ts"
-    )
-  ) {
-    fs.writeFileSync(fullAssignmentFilePath + ".js", "");
-  }
+  // Checking if a file already exists, and adding a dot if needed
+  fs.readdir(fullAssignmentFolderPath, (err, files) => {
+    if (!err && files.length === 0) {
+      if (!fileType.startsWith(".")) {
+        fileType = "." + fileType;
+      }
+      fs.writeFileSync(fullAssignmentFilePath + fileType, "");
+    }
+  });
 }
