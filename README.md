@@ -9,6 +9,7 @@ Assignments completed during the lectures at the fantastic ✨ Buutti Full Stack
 Bootcamp buddy suggested I could try to make an NPM package out of one the lecture folder generators I was creating for us to use, since we would be making a lot of folders.
   
 *ver 1.0.1 formats lectures, assignments and files with zeroes 01 for better organization in Github*
+*ver 1.0.2 checks for both .ts and .js files, providing safety from excess files.*
   
 Here it is:
 
