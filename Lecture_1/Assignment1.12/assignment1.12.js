@@ -7,7 +7,7 @@ function mathCeilGroupCount(buutcamperCount, teamSize) {
 }
 
 // Without using math.ceil() this is my favourite solution so far
-// It uses || only to get past the quirk with division by zero found in math & many programming languages
+// It uses || only to get past the quirk with division by zero found in math, JavaScript & many other programming languages
 function moduloGroupCount(buutcamperCount, teamSize) {
   //
   const division = buutcamperCount / teamSize; // e.g 2.76
