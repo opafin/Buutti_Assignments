@@ -10,7 +10,7 @@ Bootcamp buddy suggested I could try to make an NPM package out of one the lectu
   
 *ver 1.0.1 formats lectures, assignments and files with zeroes 01 for better organization in Github*   
 *ver 1.0.2 checks if any type of assignment files already exist, providing safety from excess files.*
-*ver 1.0.3 accepts an optional type parameter.  <b>npx buuf 3 10 .ts<b> //this works with the "." and without.*
+*ver 1.0.3 accepts an optional type parameter. **npx buuf 3 10 .ts** //this works with the "." and without.*
   
 Here it is:
 
