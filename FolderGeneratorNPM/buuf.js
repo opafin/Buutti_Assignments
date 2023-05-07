@@ -1,15 +1,19 @@
+// importing dependencies: "fs" for using the file system, "path" for joining file paths
 const fs = require("fs");
 const path = require("path");
 
-const lectureNumber = process.argv[2];
-const howManyToGenerate = process.argv[3];
+// input parameters for the lecture folder and the assignment folder after the "npx buuf "1" "10""
+const [npx, buuf, lectureNumber, howManyToGenerate] = process.argv;
+// alternate approach would be:
+// const lectureNumber = process.argv[2];
+// const howManyToGenerate = process.argv[3];
 
 const lectureFolder = `Lecture_${String(lectureNumber).padStart(2, "0")}`;
 
-// Get the current working directory
+// Getting the current working directory
 const projectRoot = process.cwd();
 
-// creating the lecture folder
+// Creating the lecture folder
 const fullLectureFolderPath = path.join(projectRoot, lectureFolder);
 if (!fs.existsSync(fullLectureFolderPath)) {
   fs.mkdirSync(fullLectureFolderPath);
@@ -19,7 +23,7 @@ for (let i = 0; i <= howManyToGenerate; i++) {
   const formattedI = String(i).padStart(2, "0");
 
   const assignmentFolder = `Assignment${lectureNumber}.${formattedI}`;
-  const assignmentFile = `assignment${lectureNumber}.${formattedI}.js`;
+  const assignmentFile = `assignment${lectureNumber}.${formattedI}`;
 
   const fullAssignmentFolderPath = path.join(
     fullLectureFolderPath,
@@ -36,7 +40,13 @@ for (let i = 0; i <= howManyToGenerate; i++) {
     fullAssignmentFolderPath,
     assignmentFile
   );
-  if (!fs.existsSync(fullAssignmentFilePath)) {
-    fs.writeFileSync(fullAssignmentFilePath, "");
+
+  // Checking if a base assignment file (.ts or .js) already exists
+  if (
+    !fs.existsSync(
+      fullAssignmentFilePath + ".js" && fullAssignmentFilePath + ".ts"
+    )
+  ) {
+    fs.writeFileSync(fullAssignmentFilePath + ".js", "");
   }
 }
