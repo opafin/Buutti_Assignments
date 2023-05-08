@@ -1,6 +1,6 @@
 {
   "name": "buufolders",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "create Lecture folders!",
   "main": "buufolders/buuf.js",
   "scripts": {

@@ -5,9 +5,9 @@ const path = require("path");
 // input parameters for the lecture folder and the assignment folder after the "npx buuf "1" "10" "ts"<--optional
 let [npx, buuf, lectureNumber, howManyToGenerate, fileType] = process.argv;
 // alternate approach would be:
-// const lectureNumber = process.argv[2];
-// const howManyToGenerate = process.argv[3];
-// const fileType = process.argv[4];
+// let lectureNumber = process.argv[2];
+// let howManyToGenerate = process.argv[3];
+// let fileType = process.argv[4];
 
 // makes a js-file by default
 if (!fileType) {
@@ -25,7 +25,7 @@ if (!fs.existsSync(fullLectureFolderPath)) {
   fs.mkdirSync(fullLectureFolderPath);
 }
 
-for (let i = 0; i <= howManyToGenerate; i++) {
+for (let i = 1; i <= howManyToGenerate; i++) {
   const formattedI = String(i).padStart(2, "0");
 
   const assignmentFolder = `Assignment${lectureNumber}.${formattedI}`;
