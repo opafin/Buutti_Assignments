@@ -1,3 +1,2 @@
-console.log("Hello Typescript");
-
-//compiled .js file
+console.log('Hello Typescript')
+// compiled .js file
