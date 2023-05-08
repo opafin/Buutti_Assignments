@@ -1,0 +1,21 @@
+{
+  "name": "mynpmwithmathjs",
+  "version": "1.0.0",
+  "description": "starting an npm package and installing mathjs to it",
+  "main": "node index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "test"
+  },
+  "keywords": [
+    "test",
+    "math",
+    "study"
+  ],
+  "author": "opafin",
+  "license": "ISC",
+  "dependencies": {
+    "mathjs": "^11.8.0"
+  }
+}
