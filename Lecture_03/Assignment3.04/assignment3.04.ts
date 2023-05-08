@@ -1,8 +1,8 @@
-var foo = 1
+const foo = 1;
 console.log(foo)
-const bar =1
+const bar = 1
 const baz = 123
-function test(baz)
+function test(baz: number)
 {
   console.log(baz)
 }
