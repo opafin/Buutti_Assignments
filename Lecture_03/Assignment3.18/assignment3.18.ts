@@ -1,3 +1,5 @@
+// importing promptSync for console-program style input
+// (e.g C# ReadLine() or Python Input())
 import promptSync from "prompt-sync";
 const prompt = promptSync();
 
@@ -51,11 +53,11 @@ function letterReplacer() {
 
 letterReplacer();
 
+// example use:
 // write a string of wisdom
 // tarzan loves his friendly friend monkees and jane
 // -------------------------------------------------
-// which letter to replace with which e.g
-// x with y
+// which letter to replace with which e.g: x with y
 // -------------------------------------------------
 // z with f
 // want replace another letter? y/n y
