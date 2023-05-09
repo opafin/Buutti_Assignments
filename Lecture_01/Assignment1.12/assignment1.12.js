@@ -19,8 +19,7 @@ function moduloGroupCount(buutcamperCount, teamSize) {
 
   // checking the results against the mathCeilGroupCount function
   // logging an error *in red* if the results don't match
-  if (groups !== mathCeilGroupCount(buutcamperCount, teamSize))
-    return groups + logError(" fail");
+  if (groups !== mathCeilGroupCount(buutcamperCount, teamSize)) return groups + logError(" fail");
   else return groups;
 }
 
@@ -29,8 +28,7 @@ function calculateTeamsConcise(people, size) {
   let groups = 
     (people + size - 1) / size - ((people + size - 1) % size) / size; //prettier-ignore
 
-  if (groups !== mathCeilGroupCount(people, size))
-    return groups + logError(" fail");
+  if (groups !== mathCeilGroupCount(people, size)) return groups + logError(" fail");
   else return groups;
 }
 
@@ -38,8 +36,7 @@ function calculateTeamsConciseAdditional(people, size) {
   const groups = 
     (people + size - 1 - (people - 1) % size) / size; //prettier-ignore
 
-  if (groups !== mathCeilGroupCount(people, size))
-    return groups + logError(" fail");
+  if (groups !== mathCeilGroupCount(people, size)) return groups + logError(" fail");
   else return groups;
 }
 
@@ -63,14 +60,10 @@ const testCases = [
   { people: 2800, size: 700 },
   { people: 3600, size: 900 },
   { people: 3800, size: 950 },
-  { people: 4000, size: 1000 },
+  { people: 4000, size: 1000 }
 ];
 testCases.forEach((testCase, index) => {
-  console.log(
-    `Test Case ${index + 1}: People = ${testCase.people}, Size = ${
-      testCase.size
-    }`
-  );
+  console.log(`Test Case ${index + 1}: People = ${testCase.people}, Size = ${testCase.size}`);
 
   let ceil = mathCeilGroupCount(testCase.people, testCase.size);
   console.log("number of groups", ceil, "math.ceil");
@@ -88,7 +81,8 @@ function logError(message) {
   return red + message + reset;
 }
 
-function logSuccess(message) {
+// prettier-ignore
+function logSuccess(message) { //eslint-disable-line
   const green = "\x1b[32m";
   const reset = "\x1b[0m";
   return green + message + reset;
