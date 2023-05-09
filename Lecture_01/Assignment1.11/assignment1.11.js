@@ -4,7 +4,7 @@
 // So in this assignment if you would run the program with 5 as the parameter node area_of_a_square.js 5, the program would print 25.
 
 // I'll go with prompt() instead of process.argv in this one
-const prompt = require("prompt-sync")();
+const prompt = require("prompt-sync")(); //eslint-disable-line
 
 let side = prompt("Enter the length of a square's side in kilometers: ");
 

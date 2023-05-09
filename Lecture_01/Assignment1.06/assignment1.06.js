@@ -1,6 +1,5 @@
 function processifier(anyString) {
-  processedAnyString =
-    anyString.trim().charAt(0).toLowerCase() + anyString.trim().slice(1);
+  const processedAnyString = anyString.trim().charAt(0).toLowerCase() + anyString.trim().slice(1);
   return processedAnyString;
 }
 console.log(processifier("   ThIs is A StRiNG   "));
@@ -25,7 +24,7 @@ console.log(
   )
 );
 
-const { argv } = require("process");
+const { argv } = require("process"); //eslint-disable-line
 //for inputting parameters after the file name in the terminal
 console.log(processifier(argv[2]));
 console.log(pickyProcessifier(argv[2]));

@@ -21,24 +21,6 @@ function whilefun(n: number): number {
   return sum;
 }
 
-function fizzBuzz(n: number): void {
-  let i = 0;
-
-  while (i <= n) {
-    i++;
-
-    if (i % 3 === 0 && i % 5 === 0) {
-      console.log("FizzBuzz");
-    } else if (i % 3 === 0) {
-      console.log("Fizz");
-    } else if (i % 5 === 0) {
-      console.log("Buzz");
-    } else {
-      console.log(i);
-    }
-  }
-}
-
 function pyramid(n: number): void {
   let tree = "&";
   let space = "";
@@ -63,7 +45,6 @@ function foloopPyramid(n: number): void {
   }
 }
 
-fizzBuzz(20);
 console.log(foloopfun(17));
 console.log(whilefun(17));
 pyramid(69);

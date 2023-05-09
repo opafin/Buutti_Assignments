@@ -34,11 +34,7 @@ if (isDoctor) {
   console.log("Dear Mx. ", lastName);
 }
 console.log();
-console.log(
-  "Congratulations on your",
-  age + ending[choice],
-  "birthday! Many happy returns!"
-);
+console.log("Congratulations on your", age + ending[choice], "birthday! Many happy returns!");
 
 //testing: this doesn't work, even if all spaces are removed by ignoring formatter
 console.log("Sincerely,\n",sender); //prettier-ignore

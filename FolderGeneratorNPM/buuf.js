@@ -31,10 +31,7 @@ for (let i = 1; i <= howManyToGenerate; i++) {
   const assignmentFolder = `Assignment${lectureNumber}.${formattedI}`;
   const assignmentFile = `assignment${lectureNumber}.${formattedI}`;
 
-  const fullAssignmentFolderPath = path.join(
-    fullLectureFolderPath,
-    assignmentFolder
-  );
+  const fullAssignmentFolderPath = path.join(fullLectureFolderPath, assignmentFolder);
 
   // Creating the assignment folder inside the lecture folder
   if (!fs.existsSync(fullAssignmentFolderPath)) {
@@ -42,10 +39,7 @@ for (let i = 1; i <= howManyToGenerate; i++) {
   }
 
   // Creating the assignment file inside the assignment folder
-  const fullAssignmentFilePath = path.join(
-    fullAssignmentFolderPath,
-    assignmentFile
-  );
+  const fullAssignmentFilePath = path.join(fullAssignmentFolderPath, assignmentFile);
 
   // Checking if a file already exists, and adding a dot if needed
   fs.readdir(fullAssignmentFolderPath, (err, files) => {
