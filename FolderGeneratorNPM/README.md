@@ -24,6 +24,6 @@ Does not overwrite, or duplicate files, so max count can be proggressively incre
 *ver 1.0.2 checks if any type of assignment files already exist, providing safety from excess files.*  
 *ver 1.0.3 accepts an optional type parameter. **npx buuf 3 10 .ts** //this works with the "." and without.*  
 *ver 1.0.4 clarified comments*  
-*ver 1.0.5 now works with empty spaces in foldernames. (made the .cmd file take the path as string instead of plain)*
+*ver 1.0.5 now works with empty spaces in foldernames. (made the .cmd file take the path as a string instead of plain)*
 
 ![alt text](https://raw.githubusercontent.com/opafin/Buutti_Bootcamp_Full_Stack/main/buufolders.png)
