@@ -1,0 +1,12 @@
+{
+  "name": "assignment3.12",
+  "version": "1.0.0",
+  "description": "",
+  "main": "assignment3.12.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

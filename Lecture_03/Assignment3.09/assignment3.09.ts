@@ -1,4 +1,4 @@
-function fizzBuzz(n: number): void {
+const fizzBuzz = (n: number) => {
   let i = 1;
 
   while (i < n) {
@@ -14,6 +14,6 @@ function fizzBuzz(n: number): void {
       console.log(i);
     }
   }
-}
+};
 
 fizzBuzz(100);

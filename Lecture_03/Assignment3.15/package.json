@@ -1,0 +1,12 @@
+{
+  "name": "assignment3.15",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx ts-node assignment3.15.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
