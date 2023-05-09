@@ -17,7 +17,7 @@ npx buuf 1 10 .ts
 Makes Lecture folders with inner folders, and an exercise file that stay in order in Github  
   
 Does not overwrite, or duplicate files, so max count can be proggressively increased.   
-<code style="color : greenyellow">Recommended use:</code> buuf 3 3, buuf 3 6, buuf 3 9 buuf 3 12 etc  
+<code style="color : greenyellow">Recommended use</code> buuf 3 3, buuf 3 6, buuf 3 9 buuf 3 12 etc  
   
   
 *ver 1.0.1 formats lectures, assignments and files with zeroes 01 for better organization in Github*   
