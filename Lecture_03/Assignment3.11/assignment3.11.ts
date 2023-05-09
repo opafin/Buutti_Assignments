@@ -14,3 +14,5 @@ if (numOne === numTwo && password === "hello world") {
 
 // "hello world" needs to be added with ""
 // else what is after the space will be interpreted as a new argument
+
+process.argv[0];
