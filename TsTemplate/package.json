@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx ts-node assignmentX.XX.ts", <-- add filename to run ts-file with ts-node
+    "start": "npx ts-node assignmentX.XX.ts", <-- add filename to run ts-file with ts-node 
     "quick": "tsc && node .dist/index.js",
     "build": "tsc"
   },
