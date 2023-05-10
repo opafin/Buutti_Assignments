@@ -9,7 +9,9 @@ function joinator(stringit: string[], stringi: string) {
 
 console.log(joinator(['tarzan', 'monkees', 'friends'], 'jane'))
 
-// using the forEachLoop to explain reduce
+// Using the forEachLoop to explain reduce
+// Instead of having to declare a variable outside the loop,
+// Reduce provides us with the accumulator, in addition to element and index
 
 function forEachJoinator(stringit: string[], stringi: string) {
   let newString = ''
