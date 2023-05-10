@@ -5,7 +5,6 @@ const prompt = promptSync();
 
 // use npm run start to run
 // it'll run "npx ts-node assignment3.18.ts"
-
 function letterReplacer() {
   // collects your wisdom
   console.log("write a string of wisdom");
