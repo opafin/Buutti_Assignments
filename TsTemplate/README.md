@@ -23,7 +23,7 @@ example.ts
 ```
 > "TypeScript expects there to be at least one TypeScript file in the folder in order to compile."
   
-# Helpful commands after copying template
+# Helpful commands after copying the template
 ```
 npm init @eslint/config
 ```
