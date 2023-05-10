@@ -21,7 +21,7 @@ adding a .ts file fixed this
 ```ts
 example.ts
 ```
-"TypeScript expects there to be at least one TypeScript file in the folder in order to compile."
+> "TypeScript expects there to be at least one TypeScript file in the folder in order to compile."
   
 # Helpful commands for template initialization 
 ```
