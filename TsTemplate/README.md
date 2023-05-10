@@ -10,7 +10,7 @@ If there is an .eslintrc.json in the repository root as well, then adding this t
         
  ```
   
-With this added the linter won't go looking for configs in the parent folders, and cause conflicts
+> With this added the linter won't go looking for configs in the parent folders, and cause conflicts
   
   
     
