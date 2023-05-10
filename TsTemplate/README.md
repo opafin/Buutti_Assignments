@@ -9,7 +9,10 @@ If there is an .eslintrc.json in the repository root as well, then adding this t
         
  ```
   
-With this additiontThe linter won't go looking for configs in the parent folders, and cause conflicts
+With this added the linter won't go looking for configs in the parent folders, and cause conflicts
+  
+  
+  
   
   
 When creating the template tsconfig-file would show an error  
