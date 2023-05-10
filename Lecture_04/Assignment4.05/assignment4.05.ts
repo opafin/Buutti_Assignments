@@ -1,13 +1,13 @@
 const callback = (total: number) => {
-  return console.log(total);
-};
+  return console.log(total)
+}
 function sumOfJustUnderABillion(callback: any): void {
-  let total = 0;
+  let total = 0
   for (let i = 0; i < 1000000000; i++) {
     if (i % 3 === 0 && i % 5 === 0 && i % 7 === 0) {
-      total += i;
+      total += i
     }
   }
-  callback(total);
+  callback(total)
 }
-sumOfJustUnderABillion(callback);
+sumOfJustUnderABillion(callback)
