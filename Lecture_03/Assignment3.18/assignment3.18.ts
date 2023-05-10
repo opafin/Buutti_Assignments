@@ -15,28 +15,21 @@ function letterReplacer() {
 
   // collects a dictionary of characters and their replacements untill stopped.
   const lettersToReplace: { [key: string]: string } = {};
-
   console.log("which letter to replace with which e.g");
   console.log("x with y");
   console.log(beautifulGraphics);
-
   let more = "y";
   while (more === "y") {
+    //this is where the letters pairs are taken in
     const input = prompt("").split(" ");
-
     const letterToReplace = input[0];
     const replacementLetter = input[2];
     lettersToReplace[letterToReplace] = replacementLetter;
-
     more = prompt("want replace another letter? y/n ");
-
-    if (more === "n") {
-      break;
-    }
   }
+
   // split into individual characters
   const charArray = deepWisdom.split("");
-
   // forEach goes through each letter, and it also sees the index of the current letter.
   charArray.forEach((letter, index) => {
     // it checks if the replacement dictionary's keys contain the current letter
@@ -46,6 +39,7 @@ function letterReplacer() {
       // the index read by forEach allows us to change the particular instance of the key letter to the replacement character value.
     }
   });
+
   console.log(beautifulGraphics);
   console.log(charArray.join(""));
   console.log(beautifulGraphics);
