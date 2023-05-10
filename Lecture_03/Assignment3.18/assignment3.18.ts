@@ -9,6 +9,7 @@ function letterReplacer() {
   // collects your wisdom
   console.log("write a string of wisdom");
   const deepWisdom = prompt("");
+  // renders gorgeous adaptive graphics
   const beautifulGraphics = "-".repeat(deepWisdom.length);
   console.log(beautifulGraphics);
 
@@ -19,7 +20,7 @@ function letterReplacer() {
   console.log(beautifulGraphics);
   let more = "y";
   while (more === "y") {
-    //this is where the letters pairs are taken in
+    //this is where the letter pairs are taken in
     const input = prompt("").split(" ");
     const letterToReplace = input[0];
     const replacementLetter = input[2];
