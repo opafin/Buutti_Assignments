@@ -22,3 +22,8 @@ adding a .ts file fixed this
 example.ts
 ```
 "TypeScript expects there to be at least one TypeScript file in the folder in order to compile."
+  
+# Helpful commands for template initialization 
+```
+npm init @eslint/config
+```
