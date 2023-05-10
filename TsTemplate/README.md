@@ -1,3 +1,4 @@
+# Linter Error
 If there is an .eslintrc.json in the repository root as well, then adding this to the current projects   eslintrc.json will make ESlint work in the current project.  
   
 ```
@@ -14,7 +15,7 @@ With this added the linter won't go looking for configs in the parent folders, a
   
   
   
-  
+# tsconfig Error
 When creating the template tsconfig-file would show an error  
 adding a .ts file fixed this
 ```ts
