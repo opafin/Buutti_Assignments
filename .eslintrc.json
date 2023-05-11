@@ -18,10 +18,11 @@
         "@typescript-eslint"
     ],
     "rules": {
-        //Using .prettierrc
+        "@typescript-eslint/no-var-requires": "off"
         //Using .prettierrc
         //Using .prettierrc
         //Using .prettierrc
     }
 }
+
 

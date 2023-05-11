@@ -6,12 +6,11 @@ function joinator(stringit: string[], stringi: string) {
   }, '')
   return newString
 }
-
 console.log(joinator(['tarzan', 'monkees', 'friends'], 'jane'))
 
 // Using the forEachLoop to explain reduce
 // Instead of having to declare a variable outside the loop,
-// Reduce provides us with the accumulator, in addition to element and index
+// Reduce provides us with the accumulator, in addition to element and index (and array)
 
 function forEachJoinator(stringit: string[], stringi: string) {
   let newString = ''
