@@ -25,7 +25,11 @@ function sheepCount(n: number, i = 0, countString = ''): string {
     return countString
   }
 }
-console.log(sheepCount(Number(argv[2])))
+console.log(sheepCount(Number(argv)))
+
+// 1 sheep...2 sheep...3 sheep...4 sheep...5 sheep...6 sheep...
+// 7 sheep...8 sheep...9 sheep...10 sheep...11 sheep...12 sheep...
+// 13 sheep...14 sheep...15 sheep...16 sheep...17 sheep...18 sheep...
 
 // #SOLUTION 3
 // a very fabulous reduce() edition, (argv is an array and reduce() works straight on it kjeh!)
@@ -38,6 +42,10 @@ console.log(
     return a
   }, '')
 )
+
+// 1 sheep...2 sheep...3 sheep...4 sheep...5 sheep...6 sheep...
+// 7 sheep...8 sheep...9 sheep...10 sheep...11 sheep...12 sheep...
+// 13 sheep...14 sheep...15 sheep...16 sheep...17 sheep...18 sheep...
 
 // #JEEJEE
 // OG/gangsta foloop is the best, and does the job without the fabulous reduce()
