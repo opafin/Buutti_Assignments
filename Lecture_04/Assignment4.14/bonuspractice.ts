@@ -4,10 +4,10 @@
 // oh noes where are half of the letters, i have to get them from somewhere
 export let charIndex: AbcIndex = { a: 1, b: 2, c: 3, d: 4, e: 5, y: 25, z: 26 }
 
-const Papa = require('papaparse')
+import * as papa from 'papaparse'
 const fs = require('fs')
 const csvFile = fs.readFileSync('alphabet.csv', 'utf8')
-const alphabet = Papa.parse(csvFile).data[0]
+const alphabet: any = papa.parse(csvFile).data[0]
 console.log(alphabet)
 
 // making the letter : index pairs

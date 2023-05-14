@@ -8,7 +8,7 @@ const gnol = 'nazraT thguoht siht saw a yrev gnol .ecnetnes nehT eh was enaJ esr
 let mainAccumulator = '' 
 let childAccumulator = ''
 for (let k=long.length; k >= 0; k--) {
-    var letter = (' ' + long)[k]
+    const letter = (' ' + long)[k]
     childAccumulator += letter
     if (letter == ' ') {
         mainAccumulator = childAccumulator + mainAccumulator
