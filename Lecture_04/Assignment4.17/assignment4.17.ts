@@ -1,9 +1,10 @@
-// #SOLUTION 1
-// high level function smash solution
-console.log(process.argv[2].split(' ').map((a) => a.split('').reverse().join('')).join(' '))
-
+import { argv } from '../Assignment4.13/assignment4.13'
 const long = 'Tarzan thought this was a very long sentence. Then he saw Jane reverse the words in place using JavaScript and his mind was blown'
 const gnol = 'nazraT thguoht siht saw a yrev gnol .ecnetnes nehT eh was enaJ esrever eht sdrow ni ecalp gnisu tpircSavaJ dna sih dnim saw nwolb'
+
+// #SOLUTION 1
+// high level function smash solution
+argv[2].split(' ').map(a => a.split('').reverse().join('')).join(' ')
 
 // #SOLUTION 2
 // og foloop heard reduce() has an accumulator, so og foloop got two, and did the job walking backwards

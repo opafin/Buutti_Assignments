@@ -1,5 +1,5 @@
 //I'll use at least the process.argv array for all of these so lets grab it!
-const argv = process.argv
+export const argv = process.argv
 
 // #SOLUTION 1
 // OG/Gangsta foloop
