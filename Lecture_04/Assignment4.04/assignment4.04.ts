@@ -19,9 +19,8 @@ sixSidedDie()
 sixSidedDie(2)
 eigthSidedDie(2)
 
-// since this takes a count of throws,
+// since now the dice take a count of throws,
 // lets have it return an array with all the throws
-// if thrown once, it'll just return a number, so it works like a regular die
 // e.g 100-sided die thrown 100 times -> array
 // [
 //   3, 10, 90, 56, 16, 25, 20, 49, 10, 44, 13,  7,
@@ -34,8 +33,4 @@ eigthSidedDie(2)
 //  27, 28, 63, 10, 75, 81, 43, 66, 21, 26, 64, 52,
 //  63, 85, 23, 22
 // ]
-
 // some damage! 4802
-
-// e.g 6-sided die thrown once:
-// 4
