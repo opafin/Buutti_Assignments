@@ -1,0 +1,12 @@
+{
+  "name": "assignment4.19",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx ts-node assignment4.19.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

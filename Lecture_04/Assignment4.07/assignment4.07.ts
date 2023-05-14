@@ -1,9 +1,3 @@
-//Array Methods
-
-//Map, Filter, File, Reduce
-
-//forEach
-
 const names = ['rauni', 'matias', 'Kimmo', 'Heimo', 'isko', 'Sulevi', 'Mikko', 'daavid', 'otso', 'herkko']
 
 //mutates the list

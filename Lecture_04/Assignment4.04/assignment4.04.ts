@@ -1,26 +1,28 @@
-const generateDice = (sides: number) => {
-  const beautifulDice = (throwsCount: number): number[] => {
-    const Throws = []
+export const diceMaker = (sides: number) => {
+  const beautifulDice = (throwsCount = 1): number[] => {
+    const throws = []
     for (let i = 0; i < throwsCount; i++) {
       const multiplier = Math.random()
       const range = sides - 1
       const result = Math.floor(range * multiplier) + 1
-      Throws.push(result)
+      throws.push(result)
     }
-    return Throws
+    return throws
   }
   return beautifulDice
 }
 
-const sixSidedDie = generateDice(6)
-const eigthSidedDie = generateDice(8)
+const sixSidedDie = diceMaker(6)
+const eigthSidedDie = diceMaker(8)
 
+sixSidedDie()
 sixSidedDie(2)
 eigthSidedDie(2)
 
 // since this takes a count of throws,
-// change it to return an array with all the throws
-// 100-sided die
+// lets have it return an array with all the throws
+// if thrown once, it'll just return a number, so it works like a regular die
+// e.g 100-sided die thrown 100 times -> array
 // [
 //   3, 10, 90, 56, 16, 25, 20, 49, 10, 44, 13,  7,
 //   2,  9, 36, 36, 66, 37, 36, 64, 35, 60, 70, 55,
@@ -35,4 +37,5 @@ eigthSidedDie(2)
 
 // some damage! 4802
 
-module.exports = generateDice
+// e.g 6-sided die thrown once:
+// 4

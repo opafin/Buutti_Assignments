@@ -1,11 +1,13 @@
 // Lets generate a case where we use the main features of reduce()
-// ***Däm! Mr Dandelion's rest should've been accounted for in his experience point generation rate, but was not***
+// *** a bug in the game! ***
+// ***Däm! Mr Dandelion's rested bonus should have increased his xp-generation, but it didn't!***
 // ***Turns out we have the data for Mr. Dandelion's daily rest level and his gained xp!***
 // ***Find out Mr. Dandelion's XP adjusted by his rest levels***
 
-// lets use the diceMaker from assignment 4.04 to make some dice and generate some numbers!
-const diceMaker = require('../Assignment4.04/assignment4.04.ts')
-// .. and to make a 100 sided die. Lets be glad we're in a simulation because
+// we don't actually have a dataset
+// so lets use the diceMaker from assignment 4.04 to make some dice and generate some numbers!
+import { diceMaker } from './../Assignment4.04/assignment4.04'
+// ... and to make a 100 sided die. Lets be glad we're in a simulation because
 // a 100 sided in real life would still be rolling it's first roll.
 const hundredSidedDie = diceMaker(100)
 
@@ -27,7 +29,6 @@ const randomDailyXp = hundredSidedDie(100)
 //   29,  1, 96, 14
 // ]
 
-//e.g
 // [
 //   33, 25, 99, 39, 58, 75, 88, 16, 51, 27, 78, 99,
 //   29, 67, 53, 90,  8, 18, 97, 21, 59, 32,  3,  4,
@@ -40,10 +41,10 @@ const randomDailyXp = hundredSidedDie(100)
 //   29,  1, 96, 14
 // ]
 
-console.log(randomDailyXp.reduce((a: number, b: number) => a + b) * 100)
+console.log(randomDailyXp.reduce((a: number, b: number) => a + b) * 100, 0)
 //e.g 460800 XP without considering rest!
 
-// Now lets combine and convert a these rolls with map()
+// lets combine and convert these rolls into a dataset with map()
 // creating a game data set with
 // "day numbers"
 // "fatigue modifiers"
