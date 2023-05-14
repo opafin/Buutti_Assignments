@@ -14,9 +14,8 @@ export function primeChecker(number: number) {
 // the bakedPrimeChecker(), made with the og primeChecker()
 // it's really fast after the initial loading
 // it reads prime-numbers from a bson-file and generates a 'hash'Set() for fast look up
-// we could have all the 78000 numbers in this file as well, but that would make the code
-// slightly less readable
-// promptSync allows the program to stay open and operate quickly on a given number
+// we could have all the 78000 numbers in this file as well, but that would make the code slightly less readable
+// promptSync allows the program to stay open and operate quickly on a given number without having to load it into memory again each time.
 import fs from 'fs'
 import bson from 'bson'
 import promptSync from 'prompt-sync'
@@ -53,4 +52,4 @@ bakedPrimeCheckerUserInterface()
 // it seems reading from .bson or .json doesn't effect the speed in this situation
 // apparently calculating hashes for these numbers doesn't take that long either
 // the bottleneck is the memory allocation for the hashset.
-// but once it's in memory, it's fast! boom!
+// but once it's in memory, it's O(1) fast! boom!
