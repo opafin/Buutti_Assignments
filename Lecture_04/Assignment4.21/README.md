@@ -2,7 +2,7 @@ Yes I realise these look overblown
      
 I ended up learning a lot while playing though, just from this primeChecker alone    
   
-e.g memory allocation, redis, nexe, hashsets in TS, file handling, object/dictionary syntax etc  
+e.g memory allocation, hashsets in TS, file handling, object/dictionary syntax etc, glimpse of what's redis, nexe,  
 tweaking tsconfig rules that effect import/export, added some more keybindings to vscode too, fun!
   
 table  
