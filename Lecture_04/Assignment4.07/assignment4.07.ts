@@ -1,12 +1,14 @@
 const names = ['rauni', 'matias', 'Kimmo', 'Heimo', 'isko', 'Sulevi', 'Mikko', 'daavid', 'otso', 'herkko']
 
-//mutates the list
+// #SOLUTION 1
+// mutates the list
 names.forEach((name) => {
   names[names.indexOf(name)] = name[0].toLocaleUpperCase() + name.slice(1)
 })
 console.log(...names)
 
-//or a version that doesn't mutate the list (
+// #SOLUTION 2
+// or a version that doesn't mutate the list (
 names.forEach((name) => {
   console.log(name[0].toLowerCase() + name.slice(1))
 })
