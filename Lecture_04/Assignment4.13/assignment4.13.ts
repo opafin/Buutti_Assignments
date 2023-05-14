@@ -1,7 +1,8 @@
 //I'll use at least the process.argv array for all of these so lets grab it!
 const argv = process.argv
 
-// // OG/Gangsta foloop
+// #SOLUTION 1
+// OG/Gangsta foloop
 let foloopString = ''
 for (let i = 1; i < Number(argv[2]) + 1; i++) {
   foloopString += i + ' sheep...'
@@ -12,6 +13,7 @@ console.log(foloopString)
 // 7 sheep...8 sheep...9 sheep...10 sheep...11 sheep...12 sheep...
 // 13 sheep...14 sheep...15 sheep...16 sheep...17 sheep...18 sheep...
 
+// #SOLUTION 2
 // recursion edition
 function sheepCount(n: number, i = 0, countString = ''): string {
   if (n > 0) {
@@ -25,6 +27,7 @@ function sheepCount(n: number, i = 0, countString = ''): string {
 }
 console.log(sheepCount(Number(argv[2])))
 
+// #SOLUTION 3
 // a very fabulous reduce() edition, (argv is an array and reduce() works straight on it kjeh!)
 console.log(
   argv.reduce((a: string, b, c, d: string[]) => {
@@ -36,9 +39,11 @@ console.log(
   }, '')
 )
 
+// #JEEJEE
 // OG/gangsta foloop is the best, and does the job without the fabulous reduce()
 // but diversity leads to innovations
 
+// #LEARNINGS
 // if the initial value of '' wasn't used
 // reduce() would always pick the folderpath at array[0] before the lovely sheep.
 // Making this taught me that among other things like
