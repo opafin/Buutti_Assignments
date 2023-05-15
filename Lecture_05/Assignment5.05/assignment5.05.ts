@@ -17,3 +17,10 @@ class HotRecipe extends Recipe {
 }
 const fierylihapullasoppa = new HotRecipe('fierylihapullasoppa', [jauheliha, tomaatti], 5, 10)
 console.log(fierylihapullasoppa.HottoString())
+
+// lihapullakeitto (50 servings)
+
+// - jauheliha (50)
+// - tomaatti (50)
+
+// 'WOOOOOH' + 10
