@@ -40,10 +40,10 @@ salt.increaseAmount()
 
 console.log(tortillas.toString())
 
+// Salty! ok now it works and prints with the  "root": true, in the package.json
+// and Type Checking "strict": false, in the tsconfig.json
+
 // - flour (300)
 // - water (150)
 // - Oil (30)
 // - Salt (10)
-
-// Salty! ok now it works and prints with the  "root": true, in the package.json
-// and Type Checking "strict": false, in the tsconfig.json
