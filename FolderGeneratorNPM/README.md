@@ -2,7 +2,7 @@
 npm install buufolders
 ````
 ```bash
-npx buuf 1 3
+npx buufolders 1 10
 ```
 ```
 1 = thisLecture
@@ -11,7 +11,7 @@ npx buuf 1 3
 optional file param:
 
 ```bash
-npx buuf 1 3 .ts
+npx buufolders 1 3 .ts
 ```
 
 Makes Lecture folders with inner folders, and an exercise file that stay in order in Github  
