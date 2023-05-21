@@ -1,12 +1,13 @@
-let [start, staph] = process.argv.slice(2).map(Number)
+let start = Number(process.argv[2])
+const end = Number(process.argv[3])
 
 const numberArray = []
-if (start > staph) {
-  for (start; start + 1 > staph; start--) {
+if (start > end) {
+  for (start; start + 1 > end; start--) {
     numberArray.push(start)
   }
 } else {
-  for (start; start < staph + 1; start++) {
+  for (start; start < end + 1; start++) {
     numberArray.push(start)
   }
 }

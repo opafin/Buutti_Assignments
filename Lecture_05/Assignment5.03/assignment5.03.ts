@@ -27,6 +27,8 @@ const salt = new Ingredient503('Salt', 0)
 
 const tortillas = new Recipe503('tortillas', [flour, water, oil, salt], 12)
 
+// lets test if it works by adding some salt
+
 salt.increaseAmount()
 salt.increaseAmount()
 salt.increaseAmount()

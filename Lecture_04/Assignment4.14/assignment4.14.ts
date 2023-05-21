@@ -4,7 +4,7 @@ const numerizedString = process.argv[2]
   .toUpperCase()
   .split('')
   .reduce((a: string, b: string) => {
-    a += String(charIndex[b])
+    a += charIndex[b]
     return a
   }, '')
 console.log(numerizedString)

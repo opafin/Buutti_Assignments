@@ -3,7 +3,7 @@ const ordinals = ['st', 'nd', 'rd', 'th']
 
 console.log(
   competitors.map((name, index) => {
-    index < 3 ? index : (index = 3)
-    return index + 1 + ordinals[index] + ' competitor was ' + name
+    if (index <= 3) return `${index + 1}${ordinals[index]} competitor was ${name}`
+    else return `${index + 1}th competitor was ${name}`
   })
 )

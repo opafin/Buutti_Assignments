@@ -1,12 +1,12 @@
-// Assignment 5.8: Forecast
-// Create forecast_data.json and then add to following data to
+import fs from 'fs'
 
-// {
-//   "day": "monday",
-//   "temperature": 25,
-//   "cloudy": true,
-//   "sunny": false,
-//   "windy": false
-// }
+const forecastData = fs.readFileSync('forecast_data.json', 'utf-8')
+console.log(forecastData)
 
-// Then retrieve the data and modify the temperature of that forecast. Lastly, save the change back to the file.
+const JSObject = JSON.parse(forecastData)
+
+JSObject['temperature'] = 30
+
+const JSONString = JSON.stringify(JSObject)
+
+fs.writeFileSync('newForecastData.json', JSONString, 'utf-8')

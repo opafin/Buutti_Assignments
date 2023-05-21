@@ -1,4 +1,4 @@
-const array = [2, 4, 5, 6, 8, 10, 14, 18, 25, 32]
+export const array419 = [2, 4, 5, 6, 8, 10, 14, 18, 25, 32]
 
 // lets use our dice again!
 import { diceMaker } from '../Assignment4.04/assignment4.04'
@@ -14,18 +14,22 @@ import { diceMaker } from '../Assignment4.04/assignment4.04'
 // make a die the size of our array, now 1 shorter. etc...
 
 // #SOLUTION 1
-const tempArray = array.slice()
-const randomArray = array.map(() => {
-  const diceOfArrayLength = diceMaker(tempArray.length - 1)
-  return tempArray.splice(diceOfArrayLength()[0], 1)[0]
-})
-console.log(randomArray)
+export function ArrayRandomizer(array: any[]) {
+  const tempArray = array.slice()
+  const randomArray = array.map(() => {
+    const diceOfArrayLength = diceMaker(tempArray.length - 1)
+    return tempArray.splice(diceOfArrayLength()[0] - 1, 1)[0]
+  })
+  return randomArray
+}
 
 // #SOLUTION 2 og foloop edition
-const tempArrayOg = array.slice()
-const rndArray = []
-for (let i = 0; i < array.length; i++) {
-  const diceOfArrayLength = diceMaker(tempArrayOg.length - 1)
-  rndArray.push(tempArrayOg.splice(diceOfArrayLength()[0], 1)[0])
+function foloopArrayRandomizer(array: number[]) {
+  const tempArrayOg = array.slice()
+  const rndArray = []
+  for (let i = 0; i < array.length; i++) {
+    const diceOfArrayLength = diceMaker(tempArrayOg.length - 1)
+    rndArray.push(tempArrayOg.splice(diceOfArrayLength()[0] - 1, 1)[0])
+  }
+  return rndArray
 }
-console.log(rndArray)

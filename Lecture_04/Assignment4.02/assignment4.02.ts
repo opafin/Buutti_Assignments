@@ -1,7 +1,12 @@
 function generateARandom(min: number, max: number): number {
   const multiplier = Math.random()
-  const range = max + min - 1
-  const randomInteger = Math.floor(range * multiplier) + 1
+  const range = max + min + 1
+  const randomInteger = Math.floor(range * multiplier) + min
   return randomInteger
 }
-console.log(generateARandom(1, 100))
+
+for (let i = 0; i < 1000; i++) {
+  const test: number = generateARandom(0, 100)
+  if (test === 0) console.log(test)
+  if (test === 100) console.log(test)
+}

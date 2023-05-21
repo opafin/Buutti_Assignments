@@ -1,5 +1,3 @@
-import { argv } from '../Assignment4.13/assignment4.13'
-import { charIndex } from '../Assignment4.14/bonuspractice';
 const long = 'Tarzan thought this was a very long sentence. Then he saw Jane reverse the words in place using JavaScript and his mind was blown'
 const gnol = 'nazraT thguoht siht saw a yrev gnol .ecnetnes nehT eh was enaJ esrever eht sdrow ni ecalp gnisu tpircSavaJ dna sih dnim saw nwolb'
 
