@@ -1,16 +1,18 @@
 import { argv } from '../Assignment4.13/assignment4.13'
+import { charIndex } from '../Assignment4.14/bonuspractice';
 const long = 'Tarzan thought this was a very long sentence. Then he saw Jane reverse the words in place using JavaScript and his mind was blown'
 const gnol = 'nazraT thguoht siht saw a yrev gnol .ecnetnes nehT eh was enaJ esrever eht sdrow ni ecalp gnisu tpircSavaJ dna sih dnim saw nwolb'
 
 // #SOLUTION 1
 // high level function smash solution
-argv[2].split(' ').map(a => a.split('').reverse().join('')).join(' ')
+
+console.log(long.split(' ').map(a => a.split('').reverse().join('')).join(' ')); 
 
 // #SOLUTION 2
 // og foloop heard reduce() has an accumulator, so og foloop got two, and did the job walking backwards
 let mainAccumulator = '' 
 let childAccumulator = ''
-for (let k=long.length; k >= 0; k--) {
+for (let k=long.length ; k >= 0; k--) {
     const letter = (' ' + long)[k]
     childAccumulator += letter
     if (letter == ' ') {
@@ -25,13 +27,16 @@ console.log(mainAccumulator.trim());
 // without a split(), ...spread or specifying a string[index]
 let mainAcc = ''
 let secondaryAcc = ''
-for(const char of long)
+let chars = Array.from(long)
+for(const [index, char] of chars.entries())
 {
-    secondaryAcc = char + secondaryAcc
+    secondaryAcc = char + secondaryAcc    
  if (char === " "){
     mainAcc += secondaryAcc
     secondaryAcc = ''
  }
+ else if (index === chars.length -1)
+ mainAcc += " " + secondaryAcc
 }
 console.log(mainAcc.trim());
 
