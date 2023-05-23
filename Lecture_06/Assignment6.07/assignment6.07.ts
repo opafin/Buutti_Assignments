@@ -105,3 +105,5 @@ console.log(createStudentTable(students))
 // this approach is not modular at all, it could be cut at each comment
 // but it's a common way to process a {student, score} -table
 // and it was fun to make a big reduce()!
+
+// there is something a little bit clacky about it, is there?
