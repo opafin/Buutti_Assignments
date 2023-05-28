@@ -1,8 +1,5 @@
-function generateARandom(min: number, max: number): number {
-  const multiplier = Math.random()
-  const range = max + min + 1
-  const randomInteger = Math.floor(range * multiplier) + min
-  return randomInteger
+export function generateARandom(min: number, max: number): number {
+  return Math.random() * (max - min + 1) + min
 }
 
 for (let i = 0; i < 1000; i++) {

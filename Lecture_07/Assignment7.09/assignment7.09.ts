@@ -1,6 +1,9 @@
-// Assignment 7.9: Random Number Function
-// Create and deploy an Azure function that generates random numbers. The function should take three body parameters:
+// this is min and max inclusive
+// boolean is optional, and defaults to false
 
-// The minimum number (inclusive)
-// The maximum number (exclusive)
-// A boolean value that tells if the function should return an integer
+// also maybe i should've used javascript instead of typescript for this assignment
+
+export function generateARandom(min: number, max: number, integer: boolean): number {
+  if (integer) return Math.floor(Math.random() * (max - min + 1) + min)
+  else return Math.random() * (max - min + 1) + min
+}

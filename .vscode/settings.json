@@ -1,8 +1,9 @@
 {
-    "azureFunctions.deploySubpath": "Lecture_07\\Assignment7.01",
+    "azureFunctions.deploySubpath": "Lecture_07\\Assignment7.10",
     "azureFunctions.postDeployTask": "npm install (functions)",
     "azureFunctions.projectLanguage": "TypeScript",
     "azureFunctions.projectRuntime": "~4",
     "debug.internalConsoleOptions": "neverOpen",
+    "azureFunctions.projectLanguageModel": 4,
     "azureFunctions.preDeployTask": "npm prune (functions)"
 }
