@@ -5,9 +5,7 @@ const server = express()
 server.use(express.static('public'))
 
 server.get('/', (req: Request, res: Response) => {
-  res.send(
-    'get/students, get/student/:id, post/student to update student, put/student/:id to update info, delete/student/:id'
-  )
+  res.send('hello')
 })
 
 server.use(middleware)
