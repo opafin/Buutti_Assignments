@@ -1,16 +1,4 @@
 import express, { Request, Response, NextFunction } from 'express'
-import { middleware, unknownEndpoint } from './middlewares'
-
-const server = express()
-server.use(express.static('public'))
-
-server.get('/', (req: Request, res: Response) => {
-  res.send(
-    'get/students, get/student/:id, post/student to update student, put/student/:id to update info, delete/student/:id'
-  )
-})
-
-server.use(middleware)
 
 interface Student {
   id: string
@@ -19,9 +7,9 @@ interface Student {
 }
 const students: Student[] = []
 
-server.use(express.json())
+const router = express.Router()
 
-server.get('/students', (req: Request, res: Response) => {
+router.get('/', (req: Request, res: Response) => {
   const studentIDs = students.reduce((IDs: string[], student: Student) => {
     IDs.push(student.id)
     return IDs
@@ -29,7 +17,7 @@ server.get('/students', (req: Request, res: Response) => {
   res.send(studentIDs)
 })
 
-server.get('/student/:id', (req: Request, res: Response) => {
+router.get('/:id', (req: Request, res: Response) => {
   const id = req.params.id
   console.log(req.params.id)
   const student = students.find((student) => student.id === id)
@@ -40,7 +28,7 @@ server.get('/student/:id', (req: Request, res: Response) => {
   }
 })
 
-server.post('/student', (req: Request, res: Response) => {
+router.post('/', (req: Request, res: Response) => {
   const { id, name, email } = req.body as Student
   console.log(id, name, email)
   if (!id || !name || !email) {
@@ -52,7 +40,7 @@ server.post('/student', (req: Request, res: Response) => {
   }
 })
 
-server.put('/student/:id', (req: Request, res: Response) => {
+router.put('/:id', (req: Request, res: Response) => {
   const id = req.params.id
   const student = students.find((student) => student.id === id)
   if (!student) {
@@ -69,7 +57,7 @@ server.put('/student/:id', (req: Request, res: Response) => {
   }
 })
 
-server.delete('/student/:id', (req: Request, res: Response) => {
+router.delete('/:id', (req: Request, res: Response) => {
   const id = req.params.id
   let idIndexInStudents: number = 0
   const student = students.find((student, index) => {
@@ -84,6 +72,4 @@ server.delete('/student/:id', (req: Request, res: Response) => {
   res.status(204).send()
 })
 
-server.use(unknownEndpoint)
-
-server.listen(3000)
+export default router

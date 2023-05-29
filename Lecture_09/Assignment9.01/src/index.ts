@@ -2,13 +2,6 @@ import express, { Request, Response, NextFunction } from 'express'
 import { middleware, unknownEndpoint } from './middlewares'
 
 const server = express()
-server.use(express.static('public'))
-
-server.get('/', (req: Request, res: Response) => {
-  res.send(
-    'get/students, get/student/:id, post/student to update student, put/student/:id to update info, delete/student/:id'
-  )
-})
 
 server.use(middleware)
 
@@ -18,6 +11,11 @@ interface Student {
   email: string
 }
 const students: Student[] = []
+
+server.use(express.static('public'))
+server.get('/', (req: Request, res: Response) => {
+  res.send('ok')
+})
 
 server.use(express.json())
 
