@@ -39,7 +39,7 @@ export const logger = (req: Request, res: Response, next: NextFunction) => {
   if (req.method === 'POST') log.difference = `*BOOK ADDED*`
   if (req.method === 'DELETE') log.difference = `*BOOK DELETED*`
   if (req.method === 'PUT' && name !== books[id].name) {
-    log.difference = `'*NAME CHANGED* ${name} --> ${books[id].name}`
+    log.difference = `'*NAME CHANGED* ${books[id].name} --> ${name}`
   }
   logs.push(log)
   next()
