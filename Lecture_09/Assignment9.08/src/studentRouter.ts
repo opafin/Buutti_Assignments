@@ -1,4 +1,5 @@
-import express, { Request, Response, NextFunction } from 'express'
+import express, { Request, Response, NextFunction, Router } from 'express'
+import { checkToken } from './jwtokens'
 
 interface Student {
   id: string
@@ -7,9 +8,9 @@ interface Student {
 }
 const students: Student[] = []
 
-const router = express.Router()
+const studentRouter908: Router = express.Router()
 
-router.get('/', (req: Request, res: Response) => {
+studentRouter908.get('/', checkToken, (req: Request, res: Response) => {
   const studentIDs = students.reduce((IDs: string[], student: Student) => {
     IDs.push(student.id)
     return IDs
@@ -17,7 +18,19 @@ router.get('/', (req: Request, res: Response) => {
   res.send(studentIDs)
 })
 
-router.get('/:id', (req: Request, res: Response) => {
+studentRouter908.post('/', checkToken, (req: Request, res: Response) => {
+  const { id, name, email } = req.body as Student
+  console.log(id, name, email)
+  if (!id || !name || !email) {
+    return res.status(400).send({ error: 'Missing parameters' })
+  }
+
+  students.push({ id, name, email })
+  console.log(students)
+  res.status(200).send('A new Student added!')
+})
+
+studentRouter908.get('/:id', checkToken, (req: Request, res: Response) => {
   const id = req.params.id
   console.log(req.params.id)
   const student = students.find((student) => student.id === id)
@@ -28,19 +41,7 @@ router.get('/:id', (req: Request, res: Response) => {
   }
 })
 
-router.post('/', (req: Request, res: Response) => {
-  const { id, name, email } = req.body as Student
-  console.log(id, name, email)
-  if (!id || !name || !email) {
-    res.status(400).send({ error: 'Missing parameters' })
-  } else {
-    students.push({ id, name, email })
-    res.status(201).send()
-    console.log(students)
-  }
-})
-
-router.put('/:id', (req: Request, res: Response) => {
+studentRouter908.put('/:id', checkToken, (req: Request, res: Response) => {
   const id = req.params.id
   const student = students.find((student) => student.id === id)
   if (!student) {
@@ -57,7 +58,7 @@ router.put('/:id', (req: Request, res: Response) => {
   }
 })
 
-router.delete('/:id', (req: Request, res: Response) => {
+studentRouter908.delete('/:id', checkToken, (req: Request, res: Response) => {
   const id = req.params.id
   let idIndexInStudents: number = 0
   const student = students.find((student, index) => {
@@ -72,4 +73,4 @@ router.delete('/:id', (req: Request, res: Response) => {
   res.status(204).send()
 })
 
-export default router
+export default studentRouter908

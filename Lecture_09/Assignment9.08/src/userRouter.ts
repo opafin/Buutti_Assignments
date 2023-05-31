@@ -1,45 +1,14 @@
-import express, { Request, Response, NextFunction } from 'express'
+import express, { Request, Response, NextFunction, Router } from 'express'
 import argon2 from 'argon2'
-import 'dotenv/config'
+import { tokenize } from './jwtokens'
+import { users } from './registrationRouter'
 
 const ADMIN = process.env.USERNAME ?? ''
 const PASSWORD = process.env.PASSWORD ?? ''
 
-const userRouter = express.Router()
+export const userRouter908: Router = express.Router()
 
-interface Users {
-  username: string
-  password: string
-}
-const users: Users[] = []
-
-// the async keyword is necessary here for the argon2.hash to return
-userRouter.post('/', async (req: Request, res: Response) => {
-  console.log('hello we are at the root')
-  const { username, password } = req.body
-
-  if (!username || !password) {
-    res.status(400).send({ error: 'Missing parameters' })
-    return
-  }
-  try {
-    const hashedPassword = await argon2.hash(password)
-
-    const newUser: Users = {
-      password: hashedPassword,
-      username: username
-    }
-    users.push(newUser)
-
-    console.log(users)
-    res.status(201).send(users)
-  } catch (err) {
-    console.log(err)
-    res.status(500).send({ error: 'Error hashing password' })
-  }
-})
-
-userRouter.post('/admin', async (req: Request, res: Response) => {
+userRouter908.post('/admin', async (req: Request, res: Response) => {
   console.log('hello, we are at the admin')
   const { username, password } = req.body
   // prefer explicit comparisons in typescript
@@ -56,10 +25,11 @@ userRouter.post('/admin', async (req: Request, res: Response) => {
   // unexplicit ok for a simple boolean value
   if (!isCorrectPassword) return res.status(401).send('Unauthorized')
 
-  res.send('OK')
+  const token = tokenize(username)
+  res.status(201).send(token)
 })
 
-userRouter.post('/login', async (req: Request, res: Response) => {
+userRouter908.post('/login', async (req: Request, res: Response) => {
   console.log('Hello, we are at the login')
   const { username, password } = req.body
   // prefer explicit comparisons in typescript
@@ -78,7 +48,8 @@ userRouter.post('/login', async (req: Request, res: Response) => {
   // unexplicit ok for a simple boolean value
   if (!isCorrectPassword) return res.status(401).send('Unauthorized')
 
-  res.status(204).send()
+  const token = tokenize(user.username)
+  res.status(201).send(token)
 })
 
-export default userRouter
+export default userRouter908
