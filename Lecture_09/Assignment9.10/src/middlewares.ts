@@ -1,5 +1,5 @@
-import express, { Request, Response, NextFunction } from 'express'
-import { books } from './index'
+import { Request, Response, NextFunction } from 'express'
+import { books } from './booksRouter'
 
 interface logs {
   time: string
@@ -32,17 +32,17 @@ export const logger = (req: Request, res: Response, next: NextFunction) => {
     delete log.difference
     logs.push(log)
     next()
+  } else {
+    const id = Number(req.params.id)
+    const name = String(req.body.name)
+    if (req.method === 'POST') log.difference = `*BOOK ADDED*`
+    if (req.method === 'DELETE') log.difference = `*BOOK DELETED*`
+    if (req.method === 'PUT' && name !== books[id].name) {
+      log.difference = `'*NAME CHANGED* ${books[id].name} --> ${name}`
+    }
+    logs.push(log)
+    next()
   }
-
-  const id = Number(req.params.id)
-  const name = String(req.body.name)
-  if (req.method === 'POST') log.difference = `*BOOK ADDED*`
-  if (req.method === 'DELETE') log.difference = `*BOOK DELETED*`
-  if (req.method === 'PUT' && name !== books[id].name) {
-    log.difference = `'*NAME CHANGED* ${books[id].name} --> ${name}`
-  }
-  logs.push(log)
-  next()
 }
 
 export const bookValidator = (req: Request, res: Response, next: NextFunction) => {
