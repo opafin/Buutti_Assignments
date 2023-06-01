@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            color: aliceblue;
+            font-family: "Roboto", Gadget, sans-serif;
+            font-weight: 900;
+            background-color: #302e33;
+            
+        }
+
+        .container {
+            display: block;
+            margin: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: 0.4rem;
+            padding-bottom: 0.4rem;
+            border-radius: 25px;
+            background-color: #7240e6;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+            max-width: 500px;
+
+        }
+
+        .button {
+            display: inline-block;
+            padding: 0.5em 1em;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            background-color: #172668;
+            color: white;
+            text-decoration: none;
+        }
+
+        .get {
+        color: rgb(179, 138, 255);
+        }
+
+        .post {
+            color: rgb(54, 206, 54);
+        }
+
+        .put {
+            color: rgb(255, 184, 53);
+        }
+
+        .delete {
+            color: red;
+        }
+
+        .button:not(:last-child) {
+            margin-right: 1rem;
+        }
+
+        mark {
+          background-color: rgb(18, 25, 92);
+          font-family: 'Arial Black', Gadget, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div><br></div>
+        <div><span class="button"><span class="get">GET</span> students/</span>  get the id's of every student </div>
+        <div><span class="button"><span class="get">GET</span> students/:id</span>  get student info by ID</div>
+        <div><span class="button"><span class="post">POST</span> students/</span>  add a student: id, name, email</div>
+        <div><span class="button"><span class="put">PUT</span> students/:id</span>  update a name or an email of a student by id</div>
+        <div><span class="button"><span class="delete">DEL</span> students/:id</span>  delete student by id </div>
+        <div><span class="button"><span class="post">POST</span> register/</span>  include a username and a password to register</div>
+    </div>
+</body>
+</html>
