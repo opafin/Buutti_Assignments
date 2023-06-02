@@ -21,19 +21,13 @@ fingerpori.get('/', async (req: Request, res: Response) => {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<style> body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: aliceblue;
-    font-family: "Roboto", Gadget, sans-serif;
-    font-weight: 900;
-    background-color: #302e33;
-    
-}</style>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<style>
+ body {}
+ img {
+    width: 100%;
+    height: auto;
+    }
+ </style>
 </head>
 <body>
     <img src="${parsedJoke}" alt="Joke Image">

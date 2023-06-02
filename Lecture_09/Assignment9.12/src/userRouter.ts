@@ -43,7 +43,7 @@ userRouter910.post('/login', async (req: Request, res: Response) => {
   console.log(username, password)
 
   const isCorrectPassword = await argon2.verify(user.password, password)
-  // unexplicit ok for a simple boolean value
+
   if (!isCorrectPassword) return res.status(401).send('Unauthorized')
 
   const token = tokenize(user.username)
