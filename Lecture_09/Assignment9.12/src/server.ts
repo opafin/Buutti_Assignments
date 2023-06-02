@@ -3,8 +3,8 @@ import { unknownEndpoint } from './middlewares'
 import helmet from 'helmet'
 import bookRouter from './bookRouter'
 import logsRouter from './logsRouter'
-import dadJoke from './dadjoke'
 import userRouter from './userRouter'
+import dadJoke from './dadjoke'
 import fingerpori from './fingerpori'
 
 const server = express()

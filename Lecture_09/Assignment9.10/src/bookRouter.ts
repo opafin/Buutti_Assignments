@@ -1,36 +1,28 @@
 import express, { Request, Response } from 'express'
 import { bookValidator, logger, putValidator, deleteValidator } from './middlewares'
+import { books } from './books'
+import { checkToken } from './jwtokens'
 
-const booker = express.Router()
+const bookRouter = express.Router()
 
-interface Book {
-  [id: number]: {
-    name: string
-    author: string
-    read: boolean
-  }
-}
-
-export let books: Book = {}
-
-booker.get('/', (req: Request, res: Response) => {
+bookRouter.get('/', (req: Request, res: Response) => {
   res.send(books)
 })
 
-booker.get('/:id', (req: Request, res: Response) => {
+bookRouter.get('/:id', (req: Request, res: Response) => {
   const id = Number(req.params.id)
   const foundBook = books[id]
   if (!foundBook) return res.status(404).send('No book with this ID')
   res.send(foundBook)
 })
 
-booker.post('/', bookValidator, logger, (req: Request, res: Response) => {
+bookRouter.post('/', checkToken, bookValidator, logger, (req: Request, res: Response) => {
   const { id, name, author, read } = req.body
   books[id] = { name: name, author: author, read: read }
   res.status(200).send('Book added!')
 })
 
-booker.put('/:id', putValidator, logger, (req: Request, res: Response) => {
+bookRouter.put('/:id', checkToken, putValidator, logger, (req: Request, res: Response) => {
   const id = Number(req.params.id)
   const { name, author, read } = req.body
   books[id] = {
@@ -41,7 +33,7 @@ booker.put('/:id', putValidator, logger, (req: Request, res: Response) => {
   res.status(200).send('Details updated!')
 })
 
-booker.delete('/:id', deleteValidator, logger, (req: Request, res: Response) => {
+bookRouter.delete('/:id', checkToken, deleteValidator, logger, (req: Request, res: Response) => {
   const id = Number(req.params.id)
   const name = req.body.name
 
@@ -49,4 +41,4 @@ booker.delete('/:id', deleteValidator, logger, (req: Request, res: Response) => 
   res.status(200).send('Book deleted!')
 })
 
-export default booker
+export default bookRouter
