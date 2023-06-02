@@ -120,7 +120,8 @@ describe('Book requests', () => {
   })
   it('returns 200 admin can get books', async () => {
     const response = await request(app)
-    .get('/books').set('Authorization', `Bearer ${token}`)
+    .get('/books')
+    .set('Authorization', `Bearer ${token}`)
     expect(response.statusCode).toBe(200)
   })
 })
