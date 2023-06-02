@@ -186,11 +186,12 @@ describe('Admin Book Requests', () => {
     expect(response.statusCode).toBe(200)
   })
   it('returns 200 can edit a book', async () => {
+    console.log(books[20].name, 'books[20].name');
     const response = await request(app)
-    .put('/books/40')
+    .put('/books/20')
     .send({name: "TheArtOfDatabaseMaintenance", author: "Admin" , read: true })
     .set('Authorization', `Bearer ${adminToken}`)
-    expect(books[40].name).toBe('TheArtOfDatabaseMaintenance')
+    expect(books[20].name).toBe('TheArtOfDatabaseMaintenance')
     expect(response.statusCode).toBe(200)
 })})
 
