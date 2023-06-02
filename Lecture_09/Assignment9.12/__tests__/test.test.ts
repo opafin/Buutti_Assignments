@@ -2,7 +2,8 @@ import request from 'supertest'
 import 'dotenv/config'
 import app from '../src/index'
 import jwt, { JwtPayload } from 'jsonwebtoken'
-import { before } from 'node:test'
+import { books } from '../src/books'
+import { beforeEach } from 'node:test'
 
 const SECRET = process.env.SECRET ?? ''
 
@@ -78,7 +79,7 @@ describe('Login', () => {
   })
 })
 
-describe('AdminLogin', () => {
+describe('Admin Login', () => {
   it('returns 201 and a token with adminAuth when the details are correct', async () => {
     const response = await request(app)
     .post('/user/admin')
@@ -105,31 +106,97 @@ describe('Book requests', () => {
     .send({ username: 'newTestUser', password: 'testPassword' })
     token = response.text
   })
+  
   it('returns 200 if a registered user gets books', async () => {
     const response = await request(app)
     .get('/books')
     .set('Authorization', `Bearer ${token}`)
     expect(response.statusCode).toBe(200)
+  })  
+  it('returns 403 no admin rights, if a registered nonAdmin user posts a book', async () => {
+    const response = await request(app)
+    .post('/books')
+    .send({ id: 20, name: "SQLInjectionSecrets", author: "Sus" , read: true })
+    .set('Authorization', `Bearer ${token}`)
+    expect(response.text).toBe('No admin rights for PUT INPUT or DELETE')
+    expect(response.statusCode).toBe(403)
+  })  
+  it('returns 403 no admin rights, if a registered nonAdmin user edits a book', async () => {
+    const response = await request(app)
+    .put('/books/20')
+    .send({ name: "SQLInjectionSecrets", author: "Sus" , read: true })
+    .set('Authorization', `Bearer ${token}`)
+    expect(response.text).toBe('No admin rights for PUT INPUT or DELETE')
+    expect(response.statusCode).toBe(403)
+  })  
+  it('returns 403 no admin rights, if a registered nonAdmin user deletes a book', async () => {
+    const response = await request(app)
+    .delete('/books/20')
+    .send({ name: "SQLInjectionSecrets"})
+    .set('Authorization', `Bearer ${token}`)
+    expect(response.text).toBe('No admin rights for PUT INPUT or DELETE')
+    expect(response.statusCode).toBe(403)
   })
+})
 
-  before(async () => {
+
+let adminToken: string | JwtPayload
+describe('Admin Book Requests', () => {
+  beforeAll(async () => {
     const response = await request(app)
     .post('/user/admin')
     .send({ username: 'admin', password: 'password' })
-    token = response.text
+    adminToken = response.text
+    console.log(adminToken, 'adminToken');
   })
-  it('returns 200 admin can get books', async () => {
+  it('returns 200 can get books', async () => {
     const response = await request(app)
     .get('/books')
     .set('Authorization', `Bearer ${token}`)
     expect(response.statusCode).toBe(200)
   })
-})
+  it('returns 200 can post books', async () => {
+    const response = await request(app)
+    .post('/books')
+    .send({ id: 20, name: "MyDearDatabase", author: "Admin" , read: true })
+    .set('Authorization', `Bearer ${adminToken}`)
+    .set('Accept', 'application/json')
+    expect(response.text).toBe('Book added!')
+    expect(response.statusCode).toBe(200)
+  })
+  beforeEach(async () => {
+    const response = await request(app)
+    .post('/books')
+    .send({id: 20, name: "MyDearDatabase", author: "Admin" , read: true })
+    .set('Authorization', `Bearer ${adminToken}`)
+    expect(response.statusCode).toBe(400)
+  })
+  it('returns 400 cant post a book with the same ID twice', async () => {
+    const response = await request(app)
+    .post('/books')
+    .send({ id: 20, name: "MyDearDatabase", author: "Admin" , read: true })
+    .set('Authorization', `Bearer ${adminToken}`)
+    expect(response.statusCode).toBe(200)
+  })
+  it('returns 200 can post the same book with a different ID', async () => {
+    const response = await request(app)
+    .post('/books')
+    .send({ id: 40, name: "MyDearDatabase", author: "Admin" , read: true })
+    .set('Authorization', `Bearer ${adminToken}`)
+    expect(response.statusCode).toBe(200)
+  })
+  it('returns 200 can edit a book', async () => {
+    const response = await request(app)
+    .put('/books/40')
+    .send({name: "TheArtOfDatabaseMaintenance", author: "Admin" , read: true })
+    .set('Authorization', `Bearer ${adminToken}`)
+    expect(books[40].name).toBe('TheArtOfDatabaseMaintenance')
+    expect(response.statusCode).toBe(200)
+})})
 
 function tokenTest(token: string): JwtPayload | string {
   try {
     const decodedToken = jwt.verify(token, SECRET) as JwtPayload
-    console.log(decodedToken)
     return decodedToken
   } catch (error) {
     return 'Invalid Token'

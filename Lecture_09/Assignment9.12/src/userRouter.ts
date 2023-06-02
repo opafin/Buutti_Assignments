@@ -1,5 +1,6 @@
 import express, { Request, Response, Router } from 'express'
 import argon2 from 'argon2'
+import 'dotenv/config'
 import { tokenize } from './jwtokens'
 import { CustomRequest } from './jwtokens'
 import { users, Users } from './users'
@@ -40,7 +41,6 @@ userRouter910.post('/login', async (req: Request, res: Response) => {
     res.status(400).send('No user found')
     return
   }
-  console.log(username, password)
 
   const isCorrectPassword = await argon2.verify(user.password, password)
 
@@ -75,7 +75,6 @@ userRouter910.post('/register', async (req: CustomRequest, res: Response) => {
       username: username
     }
     users.push(newUser)
-    console.log(users)
   } catch (err) {
     console.log(err)
     res.status(500).send({ error: 'Error hashing password' })

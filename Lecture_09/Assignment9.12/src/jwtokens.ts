@@ -32,12 +32,10 @@ export const checkToken = (req: CustomRequest, res: Response, next: NextFunction
   try {
     const decodedToken = jwt.verify(token, SECRET) as JwtPayload
     req.user = decodedToken
-    console.log(req.method)
     const adminMethods = ['POST', 'PUT', 'DELETE']
-    if (adminMethods.includes(req.method) && req.user.isAdmin !== 'admin') {
+    if (adminMethods.includes(req.method) && req.user.isAdmin !== true) {
       return res.status(403).send('No admin rights for PUT INPUT or DELETE')
     }
-    res.status(200).send('Token Valid')
     next()
   } catch (error) {
     return res.status(401).send('Invalid token')

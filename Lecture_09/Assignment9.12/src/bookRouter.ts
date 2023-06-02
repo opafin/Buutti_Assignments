@@ -17,8 +17,10 @@ bookRouter.get('/:id', (req: Request, res: Response) => {
 })
 
 bookRouter.post('/', checkToken, bookValidator, logger, (req: Request, res: Response) => {
-  const { id, name, author, read } = req.body
-  books[id] = { name: name, author: author, read: read }
+  const id = Number(req.body.id)
+  const { name, author, read } = req.body
+  if (books[id]) return res.status(400).send('Book already exists')
+  else books[id] = { name: name, author: author, read: read }
   res.status(200).send('Book added!')
 })
 
