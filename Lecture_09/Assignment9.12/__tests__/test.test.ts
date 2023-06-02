@@ -74,7 +74,16 @@ describe('Login', () => {
   it('returns 201 and sends a token when the username and pass are correct', async () => {
     const response = await request(app).post('/user/login')
     .send({ username: 'testUser', password: 'testPassword' })
-    expect(typeof response.text).toBe('string')
+    const token = tokenTest(response.text) as JwtPayload
+    expect(token.username).toBe('testUser')
+    expect(response.statusCode).toBe(201)
+  })
+  it('returns 201 and sends a token with no Adminauth when the username and pass are correct', async () => {
+    const response = await request(app).post('/user/login')
+    .send({ username: 'testUser', password: 'testPassword' })
+    const token = tokenTest(response.text) as JwtPayload
+    expect(token.username).toBe('testUser')
+    expect(token.isAdmin).toBe(undefined)
     expect(response.statusCode).toBe(201)
   })
 })
