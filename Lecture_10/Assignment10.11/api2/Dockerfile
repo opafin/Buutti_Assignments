@@ -1,0 +1,15 @@
+FROM node:latest AS builder
+WORKDIR /app
+COPY ./package*.json ./
+COPY ./src ./src
+COPY ./tsconfig.json ./tsconfig.json
+RUN npm ci
+RUN npm run build
+FROM node:slim AS final
+WORKDIR /app
+COPY --from=builder ./app/dist ./dist
+COPY ./package*.json ./
+RUN npm ci --production
+EXPOSE 3001
+
+CMD ["npm", "start"]
