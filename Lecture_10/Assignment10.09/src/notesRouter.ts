@@ -4,7 +4,7 @@ import { notes } from './notes'
 
 const notesRouter = express.Router()
 
-notesRouter.get('/', (res: Response) => {
+notesRouter.get('/', (req: Request, res: Response) => {
   res.send(notes)
 })
 
