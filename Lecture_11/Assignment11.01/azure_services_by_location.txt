@@ -1,0 +1,8 @@
+// Azure Functions
+// sweden central
+
+// Container Apps
+// norway east
+
+// both
+// norway east

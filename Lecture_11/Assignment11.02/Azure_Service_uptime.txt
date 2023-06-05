@@ -1,0 +1,12 @@
+1. AKS (Azure Kubernetes Service)
+-  99.95% Availability Zones
+-  99.9% of availability for clusters that aren't using Availability Zones.For more information, see SLA.
+2. App Service with Free tier
+- . No SLA is provided for Apps under either the Free or Shared tiers.
+- (((Customer subscription will be available 99.95%)))
+3. Azure DNS
+- 100% availability of DNS resolution
+-- support page says 99.99 up time, but compensation for less than 100% 
+
+
+
