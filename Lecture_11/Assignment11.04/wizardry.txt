@@ -1,0 +1,7 @@
+docker build -t spahotspringsrelaxapp .
+docker tag spahotspringsrelaxapp javascriptcloud.azurecr.io/spahotspringsrelaxapp:latest
+docker push javascriptcloud.azurecr.io/spahotspringsrelaxapp:latest
+
+docker extension 
+>docker login
+
