@@ -1,0 +1,6 @@
+- reports overlapping events if there are any within 30min
+- or if an event is on the same day and is an all day event
+- (all day event -tag from google calendar)
+- allows input with or without time, or all day boolean.
+- year-month-date is necessary
+- gräfix, will add some pictures 
