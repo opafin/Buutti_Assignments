@@ -21,13 +21,21 @@ export function eventsHtml(events: BuuEvent[]) {
 
 export function eventHtml(event: BuuEvent, index: number) {
   const formattedDate = event.start.toLocaleDateString('fi-FI').split('T')[0]
-  let timeMarkup = ''
+  let startTimeMarkup = ''
+  let endTimeMarkup = ''
   if (!event.isAllDay) {
-    const formattedTime = event.start.toLocaleTimeString('fi-FI', {
+    const formattedStartTime = event.start.toLocaleTimeString('fi-FI', {
       hour: 'numeric',
       minute: 'numeric'
     })
-    timeMarkup = `<div class="event-time">${formattedTime}</div>`
+    startTimeMarkup = `<div class="event-time">${formattedStartTime}</div>`
+    if (event.start !== event.end) {
+      const formattedEndTime = event.end.toLocaleTimeString('fi-FI', {
+        hour: 'numeric',
+        minute: 'numeric'
+      })
+      endTimeMarkup = `<div class="event-time">${formattedEndTime}</div>`
+    }
   }
   let isAllDayMarkup = ''
   if (event.isAllDay === true) {
@@ -39,7 +47,7 @@ export function eventHtml(event: BuuEvent, index: number) {
         <div class="event ${evenOddClass}">
           <div class="event-title">${event.title}</div>
           <div class="event-date">${formattedDate}</div>
-          ${timeMarkup}
+          ${startTimeMarkup} ${endTimeMarkup}
           ${isAllDayMarkup}
           <div class="event-description">${event.description}</div>
         </div>

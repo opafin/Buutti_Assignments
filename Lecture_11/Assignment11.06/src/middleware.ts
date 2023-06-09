@@ -46,10 +46,15 @@ export const parseDate = (req: Request, res: Response, next: NextFunction) => {
     } else if (endDate && endTime) {
       eventEnd = new Date(`${endDate}T${endTime}`)
     } else if (endDate === undefined) {
-      eventEnd = new Date(`${startDate})}T${endTime}`)
+      console.log('HALLOOOOO')
+      console.log(startDate, 'wat start date')
+      console.log(endTime)
+      console.log(endDate)
+      eventEnd = new Date(`${startDate}T${endTime}`)
     } else {
       eventEnd = new Date(`${endDate}T${startTime}`)
     }
+    console.log(eventEnd)
     res.locals.eventEnd = eventEnd
   }
 
@@ -98,11 +103,11 @@ export const validateEventPut = (req: Request, res: Response, next: NextFunction
   {
     const id = Number(req.params.id)
     const match = events.find((event) => event.id === id)
-    if (match === undefined) return res.status(400).send('An event with this id does not exist')
+    if (match === undefined) return res.status(400).send(oneLineHtml('An event with this id does not exist'))
 
     const { title, description, startDate, startTime, endDate, endTime, isAllDay } = req.body
     if (!title && !description && !startDate && !startTime && endDate && endTime && isAllDay === undefined)
-      return res.status(400).send('Give at least one detail to update')
+      return res.status(400).send(oneLineHtml('Give at least one detail to update'))
 
     if (!startTime && !startDate) {
       res.locals.eventStart = match.start
