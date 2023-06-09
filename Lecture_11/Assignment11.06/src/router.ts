@@ -13,7 +13,7 @@ actions.get('/', (req: Request, res: Response) => {
 actions.get('/:monthNumber', (req: Request, res: Response) => {
   const monthNumber = Number(req.params.monthNumber)
   const monthsEvents = events.filter((event) => {
-    return event.date.getMonth() === monthNumber - 1
+    return event.start.getMonth() === monthNumber - 1
   })
   const html = eventsHtml(monthsEvents)
   res.send(html)

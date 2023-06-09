@@ -20,10 +20,10 @@ export function eventsHtml(events: BuuEvent[]) {
 }
 
 export function eventHtml(event: BuuEvent, index: number) {
-  const formattedDate = event.date.toLocaleDateString('fi-FI').split('T')[0]
+  const formattedDate = event.start.toLocaleDateString('fi-FI').split('T')[0]
   let timeMarkup = ''
   if (!event.isAllDay) {
-    const formattedTime = event.date.toLocaleTimeString('fi-FI', {
+    const formattedTime = event.start.toLocaleTimeString('fi-FI', {
       hour: 'numeric',
       minute: 'numeric'
     })
@@ -55,7 +55,7 @@ export function oneLineHtml(line: string) {
   </head>
   <body>
     <div class="container">
-      <h1>${line}</h1>
+      <h2>${line}</h2>
     </div>
   </body>
   </html>
