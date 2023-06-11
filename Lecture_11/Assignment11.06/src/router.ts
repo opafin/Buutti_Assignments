@@ -1,8 +1,8 @@
 import express, { Request, Response, Router } from 'express'
-import { events } from '../events'
+import { events } from './events'
 import { validateEventPost, parseDate, addEvent } from './middleware'
 import { validateEventPut, updateEvent, eventsAtTheSameTime } from './middleware'
-import { eventsHtml, oneLineHtml } from '../interface'
+import { eventsHtml, oneLineHtml } from './interface'
 
 const actions: Router = express.Router()
 

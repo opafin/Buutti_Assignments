@@ -1,4 +1,5 @@
 body {
+  display: block;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: aliceblue;
@@ -10,14 +11,16 @@ body {
 h1 {
   font-size: 1.7rem;
   font-weight: 900;
-  text-align: center;
+  text-align:  left;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
+  overflow-wrap: break-word;
 }
 h2 {
   font-size: 3rem;
   margin: 10%;
   text-align: left;
+  overflow-wrap: break-word;
 }
 
 .container {
@@ -30,7 +33,7 @@ h2 {
   border-radius: 25px;
   background-color: #7240e6;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-  max-width: 200px;
+  /* max-width: 200px; */
   border-color: #c499ff;
   border-style: dashed;
 }
@@ -58,25 +61,55 @@ mark {
 
 .event-title {
   font-size: 18px;
-  max-width: 200px;
   overflow-wrap: break-word;
 }
 
 .event-date {
   font-size: 14px;
-  max-width: 200px;
   overflow-wrap: break-word;
 }
 
 .event-time {
+  content: "A\"";
   font-size: 14px;
   font-weight: bold;
-  max-width: 200px;
-  overflow-wrap: break-word;
+
 }
 
 .event-description {
   margin-top: 10px;
-  max-width: 200px;
+  overflow-wrap: break-word;
+}
+
+
+/* ////////////////////// */
+
+.event-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.event-table th {
+  background-color: #7240e6;
+  color: aliceblue;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: 900;
+  text-align: center;
+  border: 1px solid #c499ff;
+}
+
+.event-table td {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: aliceblue;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+  border: 1px solid #c499ff;
+}
+
+.event-title, .event-date, .event-description {
   overflow-wrap: break-word;
 }

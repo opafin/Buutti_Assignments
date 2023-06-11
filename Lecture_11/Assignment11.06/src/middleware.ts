@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express'
-import { events } from '../events'
-import { oneLineHtml } from '../interface'
+import { events } from './events'
+import { oneLineHtml } from './interface'
 export const validateEventPost = (req: Request, res: Response, next: NextFunction) => {
   const id = Number(req.body.id)
   if (events.find((event) => event.id === id))
@@ -46,10 +46,6 @@ export const parseDate = (req: Request, res: Response, next: NextFunction) => {
     } else if (endDate && endTime) {
       eventEnd = new Date(`${endDate}T${endTime}`)
     } else if (endDate === undefined) {
-      console.log('HALLOOOOO')
-      console.log(startDate, 'wat start date')
-      console.log(endTime)
-      console.log(endDate)
       eventEnd = new Date(`${startDate}T${endTime}`)
     } else {
       eventEnd = new Date(`${endDate}T${startTime}`)
@@ -77,20 +73,20 @@ export const eventsAtTheSameTime = (req: Request, res: Response, next: NextFunct
   const eventStart = res.locals.eventStart
   const eventEnd = res.locals.eventEnd
 
-  const isSameDay = events.filter((event) => {
-    return event.start.toDateString().split('T')[0] === eventStart.toDateString().split('T')[0]
-  })
-
-  const isAllDayEvent = isSameDay.filter((event) => {
-    return event.isAllDay === true || res.locals.isAllDay === true
-  })
-
-  const hasTimeClash = isSameDay.filter((event) => {
+  const hasTimeClash = events.filter((event) => {
     return event.start.getTime() <= eventEnd.getTime() && eventStart.getTime() <= event.end.getTime()
   })
 
-  const eventsAtTheSameTime = isSameDay.filter((event) => {
-    if (isAllDayEvent.includes(event) || hasTimeClash.includes(event)) {
+  const isSameDayAndAllDay = events.filter((event) => {
+    return (
+      (event.start.toDateString().split('T')[0] === eventStart.toDateString().split('T')[0] &&
+        event.isAllDay === true) ||
+      res.locals.isAllDay === true
+    )
+  })
+
+  const eventsAtTheSameTime = events.filter((event) => {
+    if (isSameDayAndAllDay.includes(event) || hasTimeClash.includes(event)) {
       return event
     }
   }, [])
@@ -101,6 +97,7 @@ export const eventsAtTheSameTime = (req: Request, res: Response, next: NextFunct
 
 export const validateEventPut = (req: Request, res: Response, next: NextFunction) => {
   {
+    // many if's with all the optional inputs on the put request
     const id = Number(req.params.id)
     const match = events.find((event) => event.id === id)
     if (match === undefined) return res.status(400).send(oneLineHtml('An event with this id does not exist'))
@@ -120,6 +117,7 @@ export const validateEventPut = (req: Request, res: Response, next: NextFunction
     } else {
       endDate ? (res.locals.endDate = endDate) : (res.locals.endDate = match.end.toISOString().slice(0, 10))
       endTime ? (res.locals.endTime = endTime) : (res.locals.endTime = match.end.toTimeString().slice(0, 5))
+      console.log(res.locals.endTime, 'ENDTIME INDA PUT VALIDATOR')
 
       if (title) res.locals.title = title
       if (description) res.locals.description = description
