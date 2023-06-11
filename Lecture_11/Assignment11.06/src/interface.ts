@@ -9,18 +9,16 @@ export function eventsHtml(events: BuuEvent[]) {
     <link rel="stylesheet" type="text/css" href="/styles.css">
     </head>
     <body>
-      <div class="container">
         <h1>Kesähommat</h1>
         <table class="event-table">
           <tr>
-            <th>Start</th>
-            <th>End</th>
-            <th>Title</th>
-            <th>Description</th>
+            <th><span class="start">Start</span></th>
+            <th><span class="end">End</span></th>
+            <th><span class="title">Title</span></th>
+            <th><span class="description">Description</span></th>
           </tr>
           ${allEvents}
         </table>
-      </div>
     </body>
     </html>
   `

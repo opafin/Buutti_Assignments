@@ -22,5 +22,13 @@ export const events: BuuEvent[] = [
     start: new Date('2023-7-12'),
     end: new Date('2023-7-12'),
     isAllDay: true
+  },
+  {
+    id: 3,
+    title: 'Kolmas Kesähomma',
+    description: 'kasvihuone hyttynen verkko telttailu lintujenlaulu marjastus luonto telttailu huvimaja marjastus',
+    start: new Date('2023-7-12-12:00'),
+    end: new Date('2024-9-20-19:00'),
+    isAllDay: false
   }
 ]

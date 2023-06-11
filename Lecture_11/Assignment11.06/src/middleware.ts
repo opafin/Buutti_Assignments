@@ -97,7 +97,7 @@ export const eventsAtTheSameTime = (req: Request, res: Response, next: NextFunct
 
 export const validateEventPut = (req: Request, res: Response, next: NextFunction) => {
   {
-    // many if's with all the optional inputs on the put request
+    // optional inputs lead to a lot of checking on the put request
     const id = Number(req.params.id)
     const match = events.find((event) => event.id === id)
     if (match === undefined) return res.status(400).send(oneLineHtml('An event with this id does not exist'))

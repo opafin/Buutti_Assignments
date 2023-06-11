@@ -23,20 +23,6 @@ h2 {
   overflow-wrap: break-word;
 }
 
-.container {
-  display: block;
-  margin: 2rem auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.4rem;
-  padding-bottom: 0.4rem;
-  border-radius: 25px;
-  background-color: #7240e6;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-  /* max-width: 200px; */
-  border-color: #c499ff;
-  border-style: dashed;
-}
 
 mark {
   background-color: rgb(18, 25, 92);
@@ -91,25 +77,40 @@ mark {
 }
 
 .event-table th {
-  background-color: #7240e6;
+  background-color: #30423d;
   color: aliceblue;
   padding: 10px;
   font-size: 1.2rem;
   font-weight: 900;
   text-align: center;
-  border: 1px solid #c499ff;
+  border: 1px solid #544c5e;
 }
 
 .event-table td {
-  background-color: rgba(255, 255, 255, 0.2);
   color: aliceblue;
   padding: 10px;
   font-size: 1rem;
   font-weight: 500;
   text-align: left;
-  border: 1px solid #c499ff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .event-title, .event-date, .event-description {
   overflow-wrap: break-word;
 }
+
+.title {
+  color: rgb(179, 138, 255);
+  }
+
+  .start {
+      color: rgb(54, 206, 54);
+  }
+
+  .description {
+      color: rgb(255, 184, 53);
+  }
+
+  .end {
+      color: rgb(233, 54, 54);
+  }
