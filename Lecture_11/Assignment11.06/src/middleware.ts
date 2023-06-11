@@ -103,7 +103,7 @@ export const validateEventPut = (req: Request, res: Response, next: NextFunction
     if (match === undefined) return res.status(400).send(oneLineHtml('An event with this id does not exist'))
 
     const { title, description, startDate, startTime, endDate, endTime, isAllDay } = req.body
-    if (!title && !description && !startDate && !startTime && endDate && endTime && isAllDay === undefined)
+    if (!title && !description && !startDate && !startTime && !endDate && !endTime && isAllDay === undefined)
       return res.status(400).send(oneLineHtml('Give at least one detail to update'))
 
     if (!startTime && !startDate) {
