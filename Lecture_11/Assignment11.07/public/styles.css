@@ -1,0 +1,116 @@
+body {
+  display: block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: aliceblue;
+  font-family: "Roboto", Gadget, sans-serif;
+  font-weight: 900;
+  background-color: #302e33;
+}
+
+h1 {
+  font-size: 1.7rem;
+  font-weight: 900;
+  text-align:  left;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  overflow-wrap: break-word;
+}
+h2 {
+  font-size: 3rem;
+  margin: 10%;
+  text-align: left;
+  overflow-wrap: break-word;
+}
+
+
+mark {
+  background-color: rgb(18, 25, 92);
+  font-family: 'Arial Black', Gadget, sans-serif;
+}
+
+.event {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  border-color: #ba8fff;
+  border-style: dashed;
+}
+
+.event-even {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.event-odd {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.event-title {
+  font-size: 18px;
+  overflow-wrap: break-word;
+}
+
+.event-date {
+  font-size: 14px;
+  overflow-wrap: break-word;
+}
+
+.event-time {
+  content: "A\"";
+  font-size: 14px;
+  font-weight: bold;
+
+}
+
+.event-description {
+  margin-top: 10px;
+  overflow-wrap: break-word;
+}
+
+
+/* ////////////////////// */
+
+.event-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.event-table th {
+  background-color: #30423d;
+  color: aliceblue;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: 900;
+  text-align: center;
+  border: 1px solid #544c5e;
+}
+
+.event-table td {
+  color: aliceblue;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.event-title, .event-date, .event-description {
+  overflow-wrap: break-word;
+}
+
+.title {
+  color: rgb(179, 138, 255);
+  }
+
+  .start {
+      color: rgb(54, 206, 54);
+  }
+
+  .description {
+      color: rgb(255, 184, 53);
+  }
+
+  .end {
+      color: rgb(233, 54, 54);
+  }
