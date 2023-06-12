@@ -1,0 +1,7 @@
+// db.file ->
+// serial autogeneroi id:n 
+// primary key = yksilöllinen
+
+
+docker inspect <container-name> | grep IPAddress
+docker inspect sqlpractice | grep IPAddress

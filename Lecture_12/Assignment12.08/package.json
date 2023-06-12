@@ -1,0 +1,20 @@
+{
+    "name": "assignment12.06",
+    "version": "1.0.0",
+    "scripts": {
+      "dev": "nodemon -r dotenv/config ./src/index.ts"
+    },
+    "dependencies": {
+      "express": "^4.18.2",
+      "pg": "^8.9.0"
+    },
+    "devDependencies": {
+      "@types/express": "^4.17.17",
+      "@types/pg": "^8.6.6",
+      "dotenv": "^16.0.3",
+      "nodemon": "^2.0.20",
+      "ts-node": "^10.9.1",
+      "typescript": "^4.9.5"
+    }
+  }
+  

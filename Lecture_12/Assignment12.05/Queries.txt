@@ -1,0 +1,14 @@
+1. Updating due date
+UPDATE loans
+SET due_date = '2069-03-03'
+WHERE id = 6;
+
+
+2. Adding books
+INSERT INTO books 
+(id, name, release_year, genre_id, language_id) 
+VALUES 
+(69, 'MyDearDatabase', 2069, 2, 3);
+
+3. Deleting a loan
+DELETE FROM loans WHERE id = 5;
