@@ -2,7 +2,9 @@
     "name": "assignment12.06",
     "version": "1.0.0",
     "scripts": {
-      "dev": "nodemon -r dotenv/config ./src/index.ts"
+      "dev": "nodemon -r dotenv/config ./src/index.ts",
+      "build": "tsc",
+      "start": "node ./dist/index.js"
     },
     "dependencies": {
       "express": "^4.18.2",

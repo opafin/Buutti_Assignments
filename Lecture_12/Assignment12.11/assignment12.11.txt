@@ -1,0 +1,23 @@
+INSERT INTO users (username, full_name, email) 
+VALUES 
+('taneli', 'Taneli Tötterström', 'taneli.totterstrom@totterstrom.fi'),
+('juhani', 'Juhani Virtanen', 'juhani.virtanen@totterstrom.fi'),
+('liisa', 'Liisa Korhonen', 'liisa.korhonen@totterstrom.fi'),
+('matti', 'Matti Nieminen', 'matti.nieminen@totterstrom.fi'),
+('anni', 'Anni Laine', 'anni.laine@totterstrom.fi');
+
+INSERT INTO posts (username, title, content) 
+VALUES 
+('taneli', 'tarzanin retket', 'tarzan muistaa edelleen päivän, kun jane saapui viidakkoon'),
+('juhani', 'Juhani''s Journey', 'Juhani shares his experiences from his recent journey.'),
+('liisa', 'Liisa''s Cooking Tips', 'Liisa shares her favorite cooking tips and recipes.'),
+('matti', 'Matti''s Music Reviews', 'Matti reviews the latest albums from his favorite artists.'),
+('anni', 'Anni''s Book Club', 'Anni discusses the books she has been reading recently.');
+
+INSERT INTO comments (username, post_id, content) 
+VALUES 
+('liisa', 1, 'I enjoyed reading about your journey, Juhani!'),
+('matti', 2, 'Those cooking tips are really helpful, Liisa.'),
+('anni', 3, 'I agree with your music reviews, Matti.'),
+('taneli', 4, 'I will definitely check out those books, Anni.'),
+('juhani', 5, 'Tarzans adventures sound fascinating, Taneli.');

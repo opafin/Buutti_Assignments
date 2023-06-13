@@ -1,7 +1,1 @@
-// db.file ->
-// serial autogeneroi id:n 
-// primary key = yksilöllinen
-
-
-docker inspect <container-name> | grep IPAddress
-docker inspect sqlpractice | grep IPAddress
+docker build --build-arg PORT=3000 --build-arg PG_HOST=172.17.0.3 --build-arg PG_PORT=5432 --build-arg PG_USERNAME=pguser --build-arg PG_PASSWORD=pgpass --build-arg PG_DATABASE=forum -t everyoneisdefinitelysocrates .

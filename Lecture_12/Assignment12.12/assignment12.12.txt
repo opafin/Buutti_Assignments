@@ -1,0 +1,26 @@
+//UPDATE
+UPDATE users 
+SET email = 'taneboi@turskanmyyjä.fi' 
+WHERE username = 'taneli';
+
+//DELETE
+1. poistetaan commentit tanen posteista
+DELETE FROM comments 
+WHERE post_id IN (
+  SELECT id FROM posts WHERE username = 'taneli'
+);
+
+2. poistetaan tanen postit
+DELETE FROM posts
+WHERE username = 'taneli'
+
+3. poistetaan tanen kommentit
+DELETE FROM comments
+WHERE username = 'taneli'
+
+4. poistetaan tane
+DELETE FROM users
+WHERE username = 'taneli'
+
+
+//Ilmeisesti cascade delete toimii myös
