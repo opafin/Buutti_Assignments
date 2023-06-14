@@ -1,4 +1,5 @@
 import { executeQuery } from './db'
+import { Post } from '../types/forum'
 
 export const addPost = async (username: string, title: string, content: string) => {
   const query = `
@@ -16,13 +17,42 @@ export const readPosts = async () => {
   return result.rows
 }
 
-export const readPost = async (id: number) => {
+export const readPost = async (id: number): Promise<Post | null> => {
   const query = `
-            SELECT id, username, title, content, post_date
-            FROM Posts WHERE id = $1`
+  SELECT 
+  json_build_object(
+    'id', posts.id,
+    'username', posts.username,
+    'title', posts.title,
+    'content', posts.content,
+    'post_date', posts.post_date,
+    'comments', json_agg(
+      json_build_object(
+        'id', comments.id,
+        'username', comments.username,
+        'post_id', comments.post_id,
+        'content', comments.content,
+        'comment_date', comments.comment_date
+      )
+    )
+  ) AS post
+FROM posts 
+LEFT JOIN comments ON posts.id = comments.post_id
+WHERE posts.id = $1
+GROUP BY posts.id`
+
   const params = [id]
   const result = await executeQuery(query, params)
-  return result.rows
+
+  console.log(result)
+
+  if (result.rows.length === 0) {
+    return null
+  }
+
+  const post: Post = result.rows[0]
+
+  return post
 }
 
 export const updatePost = async (id: number, title: string, content: string) => {
