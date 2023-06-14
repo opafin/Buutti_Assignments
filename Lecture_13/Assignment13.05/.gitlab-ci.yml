@@ -1,0 +1,21 @@
+# .gitlab-ci.yml
+stages:
+  - build_deploy
+
+build:
+  stage: build_deploy
+  image: docker:19.03.12
+  services:
+    - docker:dind
+  script:
+    -  docker build
+      --no-cache
+      --build-arg PORT="$APP_PORT"
+      --build-arg PG_HOST="$PG_HOST"
+      --build-arg PG_PORT="$PG_PORT"
+      --build-arg PG_USERNAME="$PG_USERNAME"
+      --build-arg PG_PASSWORD="$PG_PASSWORD"
+      --build-arg PG_DATABASE="$PG_DATABASE"
+      -t "$ACR_REPOSITORY"/olli-possudb-api:latest .
+    - docker login "$ACR_REPOSITORY" -u "$ACR_USERNAME" -p "$ACR_PASSWORD"
+    - docker push "$ACR_REPOSITORY"/olli-possudb-api:latest

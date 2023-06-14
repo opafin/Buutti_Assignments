@@ -1,0 +1,13 @@
+docker build 
+--build-arg PORT=3000 
+--build-arg PG_HOST=ollinpossudb.postgres.database.azure.com.postgres.database.azure.com 
+--build-arg PG_PORT=5432 
+--build-arg PG_USERNAME=propossu@ollinpossudb@ollinpossudb
+--build-arg PG_PASSWORD=SECRET PASSWORD
+--build-arg PG_DATABASE=products_api 
+-t products-api .
+
+docker build --build-arg NODE_ENV=production --build-arg PORT=3000 --build-arg PG_HOST=ollinpossudb.postgres.database.azure.com --build-arg PG_PORT=5432 --build-arg PG_USERNAME=propossu@ollinpossudb --build-arg PG_PASSWORD=passofDOmm--build-arg PG_DATABASE=products_api -t products_api .
+
+// no cache
+docker build --no-cache -t your-image-name .
