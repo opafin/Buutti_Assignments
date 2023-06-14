@@ -1,0 +1,4 @@
+Azure search postgre server
+add pc ip to azure search firewall
+username and adress visible in azure overview
+connect with pgadmin

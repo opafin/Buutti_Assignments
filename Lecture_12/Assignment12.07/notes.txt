@@ -1,5 +1,0 @@
-// db.file ->
-// serial autogeneroi id:n 
-// primary key = yksilöllinen
-
-
