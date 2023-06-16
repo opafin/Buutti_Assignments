@@ -1,0 +1,12 @@
+npm run test -- --verbose
+//many'-- --'s makes individual tests in multiple files show up when running tests
+
+new tweaks:
+server creator -function so each test-file has their own server, avoiding port conflicts
+server.listen into beforeAll
+app.close into afterAll
+mock-post-object for testing get posts&post_comments
+
+highlights:
+post-object
+multile-test-files

@@ -24,3 +24,6 @@ WHERE username = 'taneli'
 
 
 //Ilmeisesti cascade delete toimii myös
+
+
+ALTER TABLE users ADD COLUMN user_pw_hash VARCHAR;

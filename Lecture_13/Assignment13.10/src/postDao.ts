@@ -1,9 +1,9 @@
 import { executeQuery } from './db'
-import { Post, Comment } from '../types/forum'
+import { Post } from '../types/forum'
 
 export const addPost = async (username: string, title: string, content: string) => {
   const query = `
-        INSERT INTO Posts (username, title, content) VALUES ($1, $2, $3)
+        INSERT INTO Posts (post_username, post_title, post_content) VALUES ($1, $2, $3)
         RETURNING *`
   const params = [username, title, content]
   const result = await executeQuery(query, params)
@@ -21,46 +21,45 @@ export const readPost = async (id: number): Promise<Post | null> => {
   const query = `
   SELECT 
   json_build_object(
-    'id', posts.id,
-    'username', posts.username,
-    'title', posts.title,
-    'content', posts.content,
-    'post_date', posts.post_date,
-    'comments', json_agg(json_build_object(
-        'id', comments.id,
-        'username', comments.username,
-        'post_id', comments.post_id,
-        'content', comments.content,
-        'comment_date', comments.comment_date
-      ))) AS post
-FROM posts 
-LEFT JOIN comments ON posts.id = comments.post_id
-WHERE posts.id = $1
-GROUP BY posts.id`
+  'post', 
+  json_build_object(
+      'id', post_id,
+      'username', post_username,
+      'title', post_title,
+      'content', post_content,
+      'date', post_date,
+      'comments', COALESCE(json_agg(json_build_object(
+            'id', comment_id,
+            'post_id', comment_post_id,
+            'username', comment_username,
+            'content', comment_content, 
+            'date', comment_date) 
+      ) FILTER (WHERE comments.comment_id IS NOT NULL), '[]')))
+  FROM posts 
+  LEFT JOIN comments ON posts.post_id = comments.comment_post_id
+  WHERE posts.post_id = $1
+  GROUP BY posts.post_id;`
 
   const params = [id]
   const result = await executeQuery(query, params)
-
-  console.log(result)
   if (result.rows.length === 0) {
     return null
   }
-
-  const post: Post = result.rows[0]
+  const post: Post = result.rows[0].json_build_object
   return post
 }
 
 export const updatePost = async (id: number, title: string, content: string) => {
   const query = `
             UPDATE Posts 
-            SET title = $1, content = $2
-            WHERE id = $3`
+            SET post_title = $1, post_content = $2
+            WHERE post_id = $3`
   const params = [title, content, id]
   await executeQuery(query, params)
 }
 
 export const deletePost = async (id: number) => {
-  const query = `DELETE FROM Posts WHERE id = $1`
+  const query = `DELETE FROM Posts WHERE post_id = $1`
   const params = [id]
   await executeQuery(query, params)
 }

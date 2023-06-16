@@ -1,0 +1,1 @@
+docker build --build-arg NODE_ENV=production --build-arg PORT=3000 --build-arg PG_HOST=ollinpossudb.postgres.database.azure.com --build-arg PG_PORT=5432 --build-arg PG_USERNAME=propossu@ollinpossudb --build-arg PG_PASSWORD=xxxxxxxxxxx --build-arg PG_DATABASE=forum -t azure_forum_api .

@@ -1,0 +1,31 @@
+# .gitlab-ci.yml
+stages:
+  - build_lint_test
+  - docker_build_push
+
+build_lint_test:
+  stage: build_lint_test
+  image: node:latest
+  script:
+    - npm ci --include=dev
+    - npm run lint
+    - npm run test
+
+docker_build_push:
+  stage: docker_build_push
+  image: docker:19.03.12
+  services:
+    - docker:dind
+  script:
+    -  docker build
+      --no-cache
+      --build-arg PORT="$APP_PORT"
+      --build-arg PG_HOST="$PG_HOST"
+      --build-arg PG_PORT="$PG_PORT"
+      --build-arg PG_USERNAME="$PG_USERNAME"
+      --build-arg PG_PASSWORD="$PG_PASSWORD"
+      --build-arg PG_DATABASE="$PG_DATABASE"
+      --build-arg NODE_ENV="$NODE_ENV"
+      -t "$ACR_REPOSITORY"/olli-possudb-forum-api:latest .
+    - docker login "$ACR_REPOSITORY" -u "$ACR_USERNAME" -p "$ACR_PASSWORD"
+    - docker push "$ACR_REPOSITORY"/olli-possudb-forum-api:latest
