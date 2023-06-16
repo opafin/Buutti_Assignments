@@ -9,3 +9,17 @@ ICU_LOCALE         LOCALE             STRATEGY
 pguser=# \c sqlpractice
 You are now connected to database "sqlpractice" as user "pguser".
 sqlpractice=# 
+
+
+
+
+
+
+
+
+docker run 
+--name my-postgres 
+--env POSTGRES_PASSWORD=pgpass 
+--env POSTGRES_USER=pguser 
+-p 5432:5432 
+-d postgres:15.2
