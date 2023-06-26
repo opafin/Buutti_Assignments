@@ -1,0 +1,5 @@
+npm init vite@latest
+	
+cd jsc-react-app
+npm install
+npm run dev
