@@ -1,0 +1,68 @@
+.inputBox {
+    box-sizing: border-box;
+    margin-top: 15%;
+    border-style: none;
+    border-radius: 10px;
+    align-self: flex-end;
+    color: #625964;
+    text-align: center;
+    overflow: auto;
+    break-inside: auto;
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 120%;
+    resize: none;
+    padding: 7px;
+    
+
+}
+.inputBox:hover {
+    box-sizing: border-box;
+    outline-style: dashed;
+    outline-color: #c0bac2;
+    padding-right: 10px;
+    padding-left: 10px;
+    outline-width: 1px;
+    transition: outline 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+
+.inputBox:focus {
+    outline-style: dashed;
+    box-shadow:inset 0px 0px 0px 2px aquamarine;
+    padding-right: 12px;
+    padding-left: 12px;
+    transition: padding 0.5s ease-in-out;
+  }
+
+  
+.addTask {
+    border-style: none;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    min-height: 100%;
+    font-size: 120%;
+    font-weight: 900;
+    margin-top: 8%;
+    margin-bottom: 20%;
+    width: 30%;
+    padding: 5px;
+    color: #625964; 
+    transition: font-size 0.5s ease-in-out, width 0.5s ease-in-out;
+    
+}
+
+.addTask:hover{
+    box-sizing: border-box;
+    outline-style: dashed;
+    outline-color: #c0bac2;
+    outline-width: 1px;
+    color: aquamarine;
+    font-size: 150%;
+    width: 25%;
+    transition: font-size 0.5s ease-in-out, width 0.5s ease-in-out;
+
+
+}

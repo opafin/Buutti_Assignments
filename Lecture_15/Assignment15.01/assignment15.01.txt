@@ -1,0 +1,3 @@
+spa, googlemaps, favourite Utsjoki, network traffic
+no full reload, 
+dynamic change on clicking favourite

@@ -1,0 +1,21 @@
+.App {
+    transition: height 1s ease-in-out;
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .App.entering {
+    height: 0;
+  }
+  
+  .App.entered {
+    height: auto;
+  }
+  
+  .App.exiting {
+    height: auto;
+  }
+  
+  .App.exited {
+    height: 0;
+  }

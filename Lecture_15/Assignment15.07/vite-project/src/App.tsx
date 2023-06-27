@@ -11,8 +11,9 @@ function App() {
   return (
     <div>
       <div className="App">
-        <input type="text" value={myText} onChange={onInputChange} />
-        <button onClick={() => setDisplayText(myText)}>{displayText}</button>
+        <input className="inputBox" type="text" value={myText} onChange={onInputChange} />
+        <button onClick={() => setDisplayText(myText)}>Send Txt</button>
+        <div className="displayText">{displayText}</div>
       </div>
     </div>
   )
