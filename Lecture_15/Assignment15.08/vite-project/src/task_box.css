@@ -66,6 +66,7 @@
     z-index: 2;
     text-align: left;
     position: relative;
+    min-width: 100%;
     overflow-wrap: break-word;
     transition: max-height 0.8s ease-out;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
