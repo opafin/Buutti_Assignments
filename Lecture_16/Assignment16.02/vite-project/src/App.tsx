@@ -10,7 +10,7 @@ function App() {
     return () => clearTimeout(seconds)
   }, [seconds])
   //  [] ajetaan vain yhden kerran
-  //  jos määrität dependencyn, niin sen funktioita, stateja
+  //  jos määrität dependencyn, niin sitten päivitys sen mukaan: funktioita, stateja
   return <div>{seconds}</div>
 }
 
