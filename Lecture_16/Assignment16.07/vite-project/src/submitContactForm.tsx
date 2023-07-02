@@ -11,8 +11,14 @@ function ContactForm({ onCancel, submitData, existingContact }: Props) {
   const [currentContact, setCurrentContact] = useState<Contact>({ name: '', email: '', created: new Date() })
   const [isSubmitEnabled, setIsSubmitEnabled] = useState(false)
 
+  let heading = ''
   useEffect(() => {
-    if (existingContact) setCurrentContact(existingContact)
+    if (existingContact) {
+      setCurrentContact(existingContact)
+      heading = 'Edit Contact'
+    } else {
+      heading = 'Add Contact'
+    }
   }, [])
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -43,7 +49,7 @@ function ContactForm({ onCancel, submitData, existingContact }: Props) {
   return (
     <>
       <div>
-        <h1>Add Contact</h1>
+        <h1>{heading}</h1>
         <form className="theForm" onSubmit={handleSubmit} onChange={handleOnChange}>
           <label>Name</label> <br />
           <input type="text" defaultValue={currentContact?.name} name="name" id="name" />

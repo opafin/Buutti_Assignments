@@ -13,6 +13,22 @@ function App() {
   const [showInputForm, setShowContactForm] = useState(false)
   const [filter, setFilter] = useState('')
 
+  function addContact() {
+    hideViews()
+    setContactToShow({ name: '', email: '', created: new Date() })
+    setShowContactForm(true)
+  }
+
+  function removeContact(contactObj: Contact) {
+    setContacts(contacts.filter((existingContact) => existingContact.created !== contactObj.created))
+    setShowContactView(false)
+  }
+
+  function editContact() {
+    hideViews()
+    setShowContactForm(true)
+  }
+
   function showContactDetails(contactName: string) {
     const existingContact: Contact = contacts.find((existingContact) => existingContact.name === contactName) || {
       name: 'no existingContact with this name',
@@ -22,22 +38,6 @@ function App() {
     hideViews()
     setContactToShow(existingContact)
     setShowContactView(true)
-  }
-
-  function addContact() {
-    hideViews()
-    setContactToShow({ name: '', email: '', created: new Date() })
-    setShowContactForm(true)
-  }
-
-  function editContact() {
-    hideViews()
-    setShowContactForm(true)
-  }
-
-  function removeContact(contactObj: Contact) {
-    setContacts(contacts.filter((existingContact) => existingContact.created !== contactObj.created))
-    setShowContactView(false)
   }
 
   function handleContactForm(contact: Contact) {
