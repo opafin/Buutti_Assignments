@@ -50,8 +50,6 @@ function App() {
   function hideViews() {
     setShowContactView(false)
     setShowContactForm(false)
-    setShowContactForm(false)
-    setShowContactView(false)
   }
 
   return (
