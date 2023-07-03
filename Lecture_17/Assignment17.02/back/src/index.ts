@@ -5,7 +5,9 @@ const app = express()
 app.use(express.json())
 app.use(express.static('./dist/client/'))
 
-app.get('/', (req: Request, res: Response) => {})
+app.get('/', (req: Request, res: Response) => {
+  res.send()
+})
 
 app.get('/version', (req: Request, res: Response) => {
   res.send('Version 1.0')
