@@ -6,14 +6,6 @@ const Root = () => {
   return <div>this is root</div>
 }
 
-// const Contacts = ({ contact }: Props) => {
-//   return (
-//     <div className="contact">
-//       <h1>Contact</h1>
-//     </div>
-//   )
-// }
-
 //komponentteja käytetään routterin kautta, ei default appia
 //komponentit voivat tietysti olla eri tiedostoissa
 const router = createBrowserRouter([
