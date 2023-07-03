@@ -3,21 +3,20 @@ import { Contact } from './types'
 
 interface Props {
   onCancel: () => void
-  submitData: (contact: Contact) => void
-  existingContact?: Contact
+  postContact: (contact: Contact) => void
+  putContact: (contact: Contact) => void
+  selectedContact: Contact
 }
 
-function ContactForm({ onCancel, submitData, existingContact }: Props) {
-  const [currentContact, setCurrentContact] = useState<Contact>({ name: '', email: '', created: new Date() })
+function ContactForm({ onCancel, postContact, putContact, selectedContact }: Props) {
+  const [heading, setHeading] = useState('')
   const [isSubmitEnabled, setIsSubmitEnabled] = useState(false)
 
-  let heading = ''
   useEffect(() => {
-    if (existingContact) {
-      setCurrentContact(existingContact)
-      heading = 'Edit Contact'
+    if (selectedContact.name) {
+      setHeading('Edit Contact')
     } else {
-      heading = 'Add Contact'
+      setHeading('Add Contact')
     }
   }, [])
 
@@ -32,14 +31,18 @@ function ContactForm({ onCancel, submitData, existingContact }: Props) {
       address: data.get('address') as string,
       website: data.get('website') as string,
       notes: data.get('notes') as string,
-      created: existingContact?.created || new Date()
+      created: selectedContact?.created || new Date()
     }
-    submitData(contact)
+    if (selectedContact.name) {
+      putContact(contact)
+    } else {
+      postContact(contact)
+    }
   }
 
   const handleOnChange = (event: React.ChangeEvent<HTMLFormElement>) => {
     const data = new FormData(event.currentTarget)
-    if (!existingContact) {
+    if (!selectedContact) {
       const requiredFields = [data.get('name') as string, data.get('email') as string]
       const enableSubmit = requiredFields.every((value) => value && value.length > 0)
       setIsSubmitEnabled(enableSubmit)
@@ -52,22 +55,22 @@ function ContactForm({ onCancel, submitData, existingContact }: Props) {
         <h1>{heading}</h1>
         <form className="theForm" onSubmit={handleSubmit} onChange={handleOnChange}>
           <label>Name</label> <br />
-          <input type="text" defaultValue={currentContact?.name} name="name" id="name" />
+          <input type="text" defaultValue={selectedContact?.name} name="name" id="name" />
           <br />
           <label>Email</label> <br />
-          <input type="text" defaultValue={currentContact?.email} name="email" id="email" />
+          <input type="text" defaultValue={selectedContact?.email} name="email" id="email" />
           <br />
           <label>Phone</label> <br />
-          <input type="text" defaultValue={currentContact?.phone} name="phone" id="phone" />
+          <input type="text" defaultValue={selectedContact?.phone} name="phone" id="phone" />
           <br />
           <label>Address</label> <br />
-          <input type="text" defaultValue={currentContact?.address} name="address" id="address" />
+          <input type="text" defaultValue={selectedContact?.address} name="address" id="address" />
           <br />
           <label>Website</label> <br />
-          <input type="text" defaultValue={currentContact?.website} name="website" id="website" />
+          <input type="text" defaultValue={selectedContact?.website} name="website" id="website" />
           <br />
           <label>Notes</label> <br />
-          <input type="text" defaultValue={currentContact?.notes} name="notes" id="notes" />
+          <input type="text" defaultValue={selectedContact?.notes} name="notes" id="notes" />
           <br />
           <button type="submit" disabled={!isSubmitEnabled}>
             Send

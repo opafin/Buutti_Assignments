@@ -1,21 +1,21 @@
 import { useState } from 'react'
+import { Contact } from './types'
 import ContactList from './contactList'
 import SubmitContactform from './submitContactForm'
 import DisplayContact from './displayContact'
-import './App.css'
-import { Contact } from './types'
 import SearchBar from './searchBar'
+import './App.css'
 
 function App() {
   const [contacts, setContacts] = useState<Contact[]>([])
-  const [contactToShow, setContactToShow] = useState<Contact>({ name: '', email: '', created: new Date() })
+  const [selectedContact, setSelectedContact] = useState<Contact>({ name: '', email: '', created: new Date() })
   const [showContactView, setShowContactView] = useState(false)
-  const [showInputForm, setShowContactForm] = useState(false)
+  const [showContactForm, setShowContactForm] = useState(false)
   const [filter, setFilter] = useState('')
 
   function addContact() {
-    hideViews()
-    setContactToShow({ name: '', email: '', created: new Date() })
+    setShowContactView(false)
+    setSelectedContact({ name: '', email: '', created: new Date() })
     setShowContactForm(true)
   }
 
@@ -25,7 +25,7 @@ function App() {
   }
 
   function editContact() {
-    hideViews()
+    setShowContactView(false)
     setShowContactForm(true)
   }
 
@@ -35,20 +35,21 @@ function App() {
       email: '-',
       created: new Date()
     }
-    hideViews()
-    setContactToShow(existingContact)
+    setShowContactForm(false)
+    setSelectedContact(existingContact)
     setShowContactView(true)
   }
 
-  function handleContactForm(contact: Contact) {
+  function putContact(contact: Contact) {
     const updatedContacts = contacts.filter((previousContact) => previousContact.created !== contact.created)
     updatedContacts.push(contact)
     setContacts(updatedContacts)
-    hideViews()
+    setShowContactForm(false)
   }
 
-  function hideViews() {
-    setShowContactView(false)
+  function postContact(contact: Contact) {
+    const newContacts = [...contacts, contact]
+    setContacts(newContacts)
     setShowContactForm(false)
   }
 
@@ -57,15 +58,20 @@ function App() {
       <div className="contactListContainer">
         <SearchBar filter={filter} setFilter={setFilter} />
         <ContactList contacts={contacts} showContact={showContactDetails} filter={filter} />
-        <div className="addContact">{<button onClick={() => addContact()}>Add Contact</button>}</div>
+        <div className="addContact">{<button onClick={addContact}>Add Contact</button>}</div>
       </div>
       <div className="formPanel">
-        {!showContactView && !showInputForm && <h1>Contact Manager</h1>}
+        {!showContactView && !showContactForm && <h1>Contact Manager</h1>}
         {showContactView && (
-          <DisplayContact contact={contactToShow} removeContact={removeContact} editContact={editContact} />
+          <DisplayContact contact={selectedContact} removeContact={removeContact} editContact={editContact} />
         )}
-        {showInputForm && (
-          <SubmitContactform onCancel={hideViews} submitData={handleContactForm} existingContact={contactToShow} />
+        {showContactForm && (
+          <SubmitContactform
+            onCancel={() => setShowContactForm(false)}
+            postContact={postContact}
+            putContact={putContact}
+            selectedContact={selectedContact}
+          />
         )}
       </div>
     </div>
