@@ -1,11 +1,11 @@
 import { Contact } from './types'
 export interface ContactListProps {
   contacts: Contact[]
-  showContact: (contactName: string) => void
+  displayContact: (contactId: number) => void
   filter?: string
 }
 
-function ContactList({ contacts, showContact, filter }: ContactListProps) {
+function ContactList({ contacts, displayContact, filter }: ContactListProps) {
   if (filter) contacts = contacts.filter((contact) => contact.name.toLowerCase().includes(filter.toLowerCase()))
 
   //localeCompare can apparently handle international characters too, not just lower and upper case
@@ -16,7 +16,7 @@ function ContactList({ contacts, showContact, filter }: ContactListProps) {
       {sortedContacts.map((contacts, index) => {
         return (
           <li key={index}>
-            <button onClick={() => showContact(contacts.name)}>{contacts.name}</button>
+            <button onClick={() => displayContact(contacts.id)}>{contacts.name}</button>
           </li>
         )
       })}

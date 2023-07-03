@@ -8,66 +8,67 @@ import './App.css'
 
 function App() {
   const [contacts, setContacts] = useState<Contact[]>([])
-  const [selectedContact, setSelectedContact] = useState<Contact>({ name: '', email: '', created: new Date() })
-  const [showContactView, setShowContactView] = useState(false)
-  const [showContactForm, setShowContactForm] = useState(false)
+  const [selectedContact, setSelectedContact] = useState<Contact>({ name: '', email: '', id: 0 })
+  const [DisplayContactView, setDisplayContactView] = useState(false)
+  const [DisplayContactForm, setDisplayContactForm] = useState(false)
   const [filter, setFilter] = useState('')
 
   function addContact() {
-    setShowContactView(false)
-    setSelectedContact({ name: '', email: '', created: new Date() })
-    setShowContactForm(true)
+    setDisplayContactView(false)
+    setSelectedContact({ name: '', email: '', id: 0 })
+    setDisplayContactForm(true)
   }
 
   function removeContact(contactObj: Contact) {
-    setContacts(contacts.filter((existingContact) => existingContact.created !== contactObj.created))
-    setShowContactView(false)
+    setContacts(contacts.filter((existingContact) => existingContact.id !== contactObj.id))
+    setDisplayContactView(false)
   }
 
   function editContact() {
-    setShowContactView(false)
-    setShowContactForm(true)
+    setDisplayContactView(false)
+    setDisplayContactForm(true)
   }
 
-  function showContactDetails(contactName: string) {
-    const existingContact: Contact = contacts.find((existingContact) => existingContact.name === contactName) || {
+  function displayContactDetails(contactId: number) {
+    const savedContact: Contact = contacts.find((savedContact) => savedContact.id === contactId) || {
       name: 'no existingContact with this name',
       email: '-',
-      created: new Date()
+      id: 0
     }
-    setShowContactForm(false)
-    setSelectedContact(existingContact)
-    setShowContactView(true)
+    setDisplayContactForm(false)
+    setSelectedContact(savedContact)
+    setDisplayContactView(true)
   }
 
   function putContact(contact: Contact) {
-    const updatedContacts = contacts.filter((previousContact) => previousContact.created !== contact.created)
+    const updatedContacts = contacts.filter((previousContact) => previousContact.id !== contact.id)
     updatedContacts.push(contact)
     setContacts(updatedContacts)
-    setShowContactForm(false)
+    setDisplayContactForm(false)
+    setDisplayContactView(true)
   }
 
   function postContact(contact: Contact) {
     const newContacts = [...contacts, contact]
     setContacts(newContacts)
-    setShowContactForm(false)
+    setDisplayContactForm(false)
   }
 
   return (
     <div className="contactsApp">
       <div className="contactListContainer">
         <SearchBar filter={filter} setFilter={setFilter} />
-        <ContactList contacts={contacts} showContact={showContactDetails} filter={filter} />
+        <ContactList contacts={contacts} displayContact={displayContactDetails} filter={filter} />
         <div className="addContact">{<button onClick={addContact}>Add Contact</button>}</div>
       </div>
       <div className="formPanel">
-        {!showContactView && !showContactForm && <h1>Contact Manager</h1>}
-        {showContactView && (
+        {!DisplayContactView && !DisplayContactForm && <h1>Contact Manager</h1>}
+        {DisplayContactView && (
           <DisplayContact contact={selectedContact} removeContact={removeContact} editContact={editContact} />
         )}
-        {showContactForm && (
+        {DisplayContactForm && (
           <SubmitContactform
-            onCancel={() => setShowContactForm(false)}
+            onCancel={() => setDisplayContactForm(false)}
             postContact={postContact}
             putContact={putContact}
             selectedContact={selectedContact}

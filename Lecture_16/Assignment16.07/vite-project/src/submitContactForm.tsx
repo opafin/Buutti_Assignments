@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Contact } from './types'
+import { theUltimateGUID } from './theUltimateGUID'
 
 interface Props {
   onCancel: () => void
@@ -31,13 +32,9 @@ function ContactForm({ onCancel, postContact, putContact, selectedContact }: Pro
       address: data.get('address') as string,
       website: data.get('website') as string,
       notes: data.get('notes') as string,
-      created: selectedContact?.created || new Date()
+      id: selectedContact.id === 0 ? theUltimateGUID() : selectedContact.id
     }
-    if (selectedContact.name) {
-      putContact(contact)
-    } else {
-      postContact(contact)
-    }
+    selectedContact.name === '' ? postContact(contact) : putContact(contact)
   }
 
   const handleOnChange = (event: React.ChangeEvent<HTMLFormElement>) => {
