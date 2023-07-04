@@ -1,0 +1,85 @@
+.songBtn {
+	text-align: left;
+	cursor: pointer;
+    height: 40px;
+    
+}
+
+.songLinks{
+    font-weight: 900;
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: left;
+    font-size: 1.4em;
+    color:rgb(41, 41, 41);
+    size: 100px;
+    
+}
+
+
+button.songBtn{
+    border-style: none;
+    
+}
+button.songBtn:hover{
+    letter-spacing: 2px;
+}
+
+.songBtn {
+    background-color: #fffdfd;
+	color: #000000;
+	transition: all 0.3s;
+	position: relative;
+}
+.songBtn span {
+	transition: all 0.3s;
+    
+}
+.songBtn::before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transition: all 0.3s;
+	border-top-width: 2px;
+	border-bottom-width: 2px;
+	border-bottom-style: dashed;
+	border-bottom-color: rgb(13, 255, 53);
+	transform: scale(0., 1);
+    pointer-events: none;
+}
+.songBtn:hover span {
+	letter-spacing: 2px;
+}
+.songBtn:hover::before {
+	opacity: 1;	
+	transform: scale(1, 1);	
+}
+.songBtn::after {
+	content: '';
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transition: all 0.3s;
+	background-color: rgba(255, 254, 254, 0.1);
+}
+.songBtn:hover::after {
+	opacity: 0;	
+	transform: scale(0.1, 1);
+}
+
+.songBtn-selected{
+    border-style: none;
+    background-color: rgb(255, 255, 255);
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-right: 1%;
+	border-bottom-style: solid;
+    letter-spacing: 2px;
+    /* transition: all 0.3s ease-in-out; */
+}
+
